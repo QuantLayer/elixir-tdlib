@@ -6,7 +6,10 @@ TARGET=priv/tdlib-json-cli
 TDLIB_SRC=priv/tdlib_v1.0.0.tar.gz
 TDLIBJSONCLI_SRC=priv/tdlib-json-cli_v0.0.0-alpha1.tar.gz
 
-all: extract build import
+all:
+	if [ ! -f $(TARGET) ]; then \
+		make extract build import; \
+	fi
 
 clean:
 	rm -f $(TARGET)
