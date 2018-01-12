@@ -4,15 +4,12 @@ defmodule TDLib do
   """
 
   @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> TDLib.hello
-      :world
-
   """
-  def hello do
-    :world
+  def send do
+  end
+
+  @doc """
+  """
+  def receive do
   end
 end
