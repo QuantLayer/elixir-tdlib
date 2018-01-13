@@ -8,7 +8,13 @@ defmodule TDLib.Mixfile do
       elixir: "~> 1.5",
       start_permanent: Mix.env == :prod,
       compilers: [:elixir_make] ++ Mix.compilers,
-      deps: deps()
+      deps: deps(),
+
+      # Docs
+      name: "TDLib",
+      source_url: "https://gitlab.com/Fnux/elixir-tdlib",
+      homepage_url: "https://gitlab.com/Fnux/elixir-tdlib",
+      docs: [main: "readme", extras: ["README.md"]]
     ]
   end
 
@@ -23,7 +29,8 @@ defmodule TDLib.Mixfile do
   defp deps do
     [
       {:poison, "~> 3.1"},
-      {:elixir_make, "~> 0.4", runtime: false}
+      {:elixir_make, "~> 0.4", runtime: false},
+      {:ex_doc, "~> 0.18", only: :dev, runtime: false}
     ]
   end
 end
