@@ -11,7 +11,7 @@ defmodule TestUseError do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1test_use_error.html).
   """
 
-  defstruct []
+  defstruct "@type": "testUseError"
 end
 defmodule CreateNewBasicGroupChat do
   @moduledoc  """
@@ -26,7 +26,7 @@ defmodule CreateNewBasicGroupChat do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1create_new_basic_group_chat.html).
   """
 
-  defstruct [:user_ids, :title]
+  defstruct "@type": "createNewBasicGroupChat", user_ids: nil, title: nil
 end
 defmodule SearchChatRecentLocationMessages do
   @moduledoc  """
@@ -41,7 +41,7 @@ defmodule SearchChatRecentLocationMessages do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1search_chat_recent_location_messages.html).
   """
 
-  defstruct [:chat_id, :limit]
+  defstruct "@type": "searchChatRecentLocationMessages", chat_id: nil, limit: nil
 end
 defmodule SendInlineQueryResultMessage do
   @moduledoc  """
@@ -60,7 +60,7 @@ defmodule SendInlineQueryResultMessage do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1send_inline_query_result_message.html).
   """
 
-  defstruct [:chat_id, :reply_to_message_id, :disable_notification, :from_background, :query_id, :result_id]
+  defstruct "@type": "sendInlineQueryResultMessage", chat_id: nil, reply_to_message_id: nil, disable_notification: nil, from_background: nil, query_id: nil, result_id: nil
 end
 defmodule ClearRecentlyFoundChats do
   @moduledoc  """
@@ -71,7 +71,7 @@ defmodule ClearRecentlyFoundChats do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1clear_recently_found_chats.html).
   """
 
-  defstruct []
+  defstruct "@type": "clearRecentlyFoundChats"
 end
 defmodule CheckChatInviteLink do
   @moduledoc  """
@@ -85,7 +85,7 @@ defmodule CheckChatInviteLink do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1check_chat_invite_link.html).
   """
 
-  defstruct [:invite_link]
+  defstruct "@type": "checkChatInviteLink", invite_link: nil
 end
 defmodule AnswerCallbackQuery do
   @moduledoc  """
@@ -103,7 +103,7 @@ defmodule AnswerCallbackQuery do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1answer_callback_query.html).
   """
 
-  defstruct [:callback_query_id, :text, :show_alert, :url, :cache_time]
+  defstruct "@type": "answerCallbackQuery", callback_query_id: nil, text: nil, show_alert: nil, url: nil, cache_time: nil
 end
 defmodule GetChatAdministrators do
   @moduledoc  """
@@ -117,7 +117,7 @@ defmodule GetChatAdministrators do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_chat_administrators.html).
   """
 
-  defstruct [:chat_id]
+  defstruct "@type": "getChatAdministrators", chat_id: nil
 end
 defmodule GetChatReportSpamState do
   @moduledoc  """
@@ -131,7 +131,7 @@ defmodule GetChatReportSpamState do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_chat_report_spam_state.html).
   """
 
-  defstruct [:chat_id]
+  defstruct "@type": "getChatReportSpamState", chat_id: nil
 end
 defmodule ReportSupergroupSpam do
   @moduledoc  """
@@ -147,7 +147,7 @@ defmodule ReportSupergroupSpam do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1report_supergroup_spam.html).
   """
 
-  defstruct [:supergroup_id, :user_id, :message_ids]
+  defstruct "@type": "reportSupergroupSpam", supergroup_id: nil, user_id: nil, message_ids: nil
 end
 defmodule SetChatClientData do
   @moduledoc  """
@@ -162,7 +162,7 @@ defmodule SetChatClientData do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_chat_client_data.html).
   """
 
-  defstruct [:chat_id, :client_data]
+  defstruct "@type": "setChatClientData", chat_id: nil, client_data: nil
 end
 defmodule ValidateOrderInfo do
   @moduledoc  """
@@ -179,7 +179,7 @@ defmodule ValidateOrderInfo do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1validate_order_info.html).
   """
 
-  defstruct [:chat_id, :message_id, :order_info, :allow_save]
+  defstruct "@type": "validateOrderInfo", chat_id: nil, message_id: nil, order_info: nil, allow_save: nil
 end
 defmodule DeleteSavedCredentials do
   @moduledoc  """
@@ -190,7 +190,7 @@ defmodule DeleteSavedCredentials do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1delete_saved_credentials.html).
   """
 
-  defstruct []
+  defstruct "@type": "deleteSavedCredentials"
 end
 defmodule TestUseUpdate do
   @moduledoc  """
@@ -201,7 +201,7 @@ defmodule TestUseUpdate do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1test_use_update.html).
   """
 
-  defstruct []
+  defstruct "@type": "testUseUpdate"
 end
 defmodule PinSupergroupMessage do
   @moduledoc  """
@@ -217,7 +217,7 @@ defmodule PinSupergroupMessage do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1pin_supergroup_message.html).
   """
 
-  defstruct [:supergroup_id, :message_id, :disable_notification]
+  defstruct "@type": "pinSupergroupMessage", supergroup_id: nil, message_id: nil, disable_notification: nil
 end
 defmodule TestCallString do
   @moduledoc  """
@@ -231,7 +231,7 @@ defmodule TestCallString do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1test_call_string.html).
   """
 
-  defstruct [:x]
+  defstruct "@type": "testCallString", x: nil
 end
 defmodule AddNetworkStatistics do
   @moduledoc  """
@@ -245,7 +245,7 @@ defmodule AddNetworkStatistics do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1add_network_statistics.html).
   """
 
-  defstruct [:entry]
+  defstruct "@type": "addNetworkStatistics", entry: nil
 end
 defmodule GetAttachedStickerSets do
   @moduledoc  """
@@ -259,7 +259,7 @@ defmodule GetAttachedStickerSets do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_attached_sticker_sets.html).
   """
 
-  defstruct [:file_id]
+  defstruct "@type": "getAttachedStickerSets", file_id: nil
 end
 defmodule OpenMessageContent do
   @moduledoc  """
@@ -274,7 +274,7 @@ defmodule OpenMessageContent do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1open_message_content.html).
   """
 
-  defstruct [:chat_id, :message_id]
+  defstruct "@type": "openMessageContent", chat_id: nil, message_id: nil
 end
 defmodule CreateSupergroupChat do
   @moduledoc  """
@@ -288,7 +288,7 @@ defmodule CreateSupergroupChat do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1create_supergroup_chat.html).
   """
 
-  defstruct [:supergroup_id]
+  defstruct "@type": "createSupergroupChat", supergroup_id: nil
 end
 defmodule ToggleBasicGroupAdministrators do
   @moduledoc  """
@@ -303,7 +303,7 @@ defmodule ToggleBasicGroupAdministrators do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1toggle_basic_group_administrators.html).
   """
 
-  defstruct [:basic_group_id, :everyone_is_administrator]
+  defstruct "@type": "toggleBasicGroupAdministrators", basic_group_id: nil, everyone_is_administrator: nil
 end
 defmodule CheckAuthenticationCode do
   @moduledoc  """
@@ -319,7 +319,7 @@ defmodule CheckAuthenticationCode do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1check_authentication_code.html).
   """
 
-  defstruct [:code, :first_name, :last_name]
+  defstruct "@type": "checkAuthenticationCode", code: nil, first_name: nil, last_name: nil
 end
 defmodule ToggleSupergroupSignMessages do
   @moduledoc  """
@@ -334,7 +334,7 @@ defmodule ToggleSupergroupSignMessages do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1toggle_supergroup_sign_messages.html).
   """
 
-  defstruct [:supergroup_id, :sign_messages]
+  defstruct "@type": "toggleSupergroupSignMessages", supergroup_id: nil, sign_messages: nil
 end
 defmodule RequestAuthenticationPasswordRecovery do
   @moduledoc  """
@@ -345,7 +345,7 @@ defmodule RequestAuthenticationPasswordRecovery do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1request_authentication_password_recovery.html).
   """
 
-  defstruct []
+  defstruct "@type": "requestAuthenticationPasswordRecovery"
 end
 defmodule GetMe do
   @moduledoc  """
@@ -356,7 +356,7 @@ defmodule GetMe do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_me.html).
   """
 
-  defstruct []
+  defstruct "@type": "getMe"
 end
 defmodule SetChatMemberStatus do
   @moduledoc  """
@@ -372,7 +372,7 @@ defmodule SetChatMemberStatus do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_chat_member_status.html).
   """
 
-  defstruct [:chat_id, :user_id, :status]
+  defstruct "@type": "setChatMemberStatus", chat_id: nil, user_id: nil, status: nil
 end
 defmodule GetMessages do
   @moduledoc  """
@@ -387,7 +387,7 @@ defmodule GetMessages do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_messages.html).
   """
 
-  defstruct [:chat_id, :message_ids]
+  defstruct "@type": "getMessages", chat_id: nil, message_ids: nil
 end
 defmodule SetStickerPositionInSet do
   @moduledoc  """
@@ -402,7 +402,7 @@ defmodule SetStickerPositionInSet do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_sticker_position_in_set.html).
   """
 
-  defstruct [:sticker, :position]
+  defstruct "@type": "setStickerPositionInSet", sticker: nil, position: nil
 end
 defmodule DeleteChatHistory do
   @moduledoc  """
@@ -417,7 +417,7 @@ defmodule DeleteChatHistory do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1delete_chat_history.html).
   """
 
-  defstruct [:chat_id, :remove_from_chat_list]
+  defstruct "@type": "deleteChatHistory", chat_id: nil, remove_from_chat_list: nil
 end
 defmodule SetInlineGameScore do
   @moduledoc  """
@@ -435,7 +435,7 @@ defmodule SetInlineGameScore do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_inline_game_score.html).
   """
 
-  defstruct [:inline_message_id, :edit_message, :user_id, :score, :force]
+  defstruct "@type": "setInlineGameScore", inline_message_id: nil, edit_message: nil, user_id: nil, score: nil, force: nil
 end
 defmodule SendCallDebugInformation do
   @moduledoc  """
@@ -450,7 +450,7 @@ defmodule SendCallDebugInformation do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1send_call_debug_information.html).
   """
 
-  defstruct [:call_id, :debug_information]
+  defstruct "@type": "sendCallDebugInformation", call_id: nil, debug_information: nil
 end
 defmodule SetSupergroupStickerSet do
   @moduledoc  """
@@ -465,7 +465,7 @@ defmodule SetSupergroupStickerSet do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_supergroup_sticker_set.html).
   """
 
-  defstruct [:supergroup_id, :sticker_set_id]
+  defstruct "@type": "setSupergroupStickerSet", supergroup_id: nil, sticker_set_id: nil
 end
 defmodule GetInstalledStickerSets do
   @moduledoc  """
@@ -479,7 +479,7 @@ defmodule GetInstalledStickerSets do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_installed_sticker_sets.html).
   """
 
-  defstruct [:is_masks]
+  defstruct "@type": "getInstalledStickerSets", is_masks: nil
 end
 defmodule SendBotStartMessage do
   @moduledoc  """
@@ -495,7 +495,7 @@ defmodule SendBotStartMessage do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1send_bot_start_message.html).
   """
 
-  defstruct [:bot_user_id, :chat_id, :parameter]
+  defstruct "@type": "sendBotStartMessage", bot_user_id: nil, chat_id: nil, parameter: nil
 end
 defmodule CloseChat do
   @moduledoc  """
@@ -509,7 +509,7 @@ defmodule CloseChat do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1close_chat.html).
   """
 
-  defstruct [:chat_id]
+  defstruct "@type": "closeChat", chat_id: nil
 end
 defmodule GetTopChats do
   @moduledoc  """
@@ -524,7 +524,7 @@ defmodule GetTopChats do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_top_chats.html).
   """
 
-  defstruct [:category, :limit]
+  defstruct "@type": "getTopChats", category: nil, limit: nil
 end
 defmodule GetTrendingStickerSets do
   @moduledoc  """
@@ -535,7 +535,7 @@ defmodule GetTrendingStickerSets do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_trending_sticker_sets.html).
   """
 
-  defstruct []
+  defstruct "@type": "getTrendingStickerSets"
 end
 defmodule GetTermsOfService do
   @moduledoc  """
@@ -546,7 +546,7 @@ defmodule GetTermsOfService do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_terms_of_service.html).
   """
 
-  defstruct []
+  defstruct "@type": "getTermsOfService"
 end
 defmodule GetStickerSet do
   @moduledoc  """
@@ -560,7 +560,7 @@ defmodule GetStickerSet do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_sticker_set.html).
   """
 
-  defstruct [:set_id]
+  defstruct "@type": "getStickerSet", set_id: nil
 end
 defmodule CreatePrivateChat do
   @moduledoc  """
@@ -574,7 +574,7 @@ defmodule CreatePrivateChat do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1create_private_chat.html).
   """
 
-  defstruct [:user_id]
+  defstruct "@type": "createPrivateChat", user_id: nil
 end
 defmodule GetActiveLiveLocationMessages do
   @moduledoc  """
@@ -585,7 +585,7 @@ defmodule GetActiveLiveLocationMessages do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_active_live_location_messages.html).
   """
 
-  defstruct []
+  defstruct "@type": "getActiveLiveLocationMessages"
 end
 defmodule GetSupportUser do
   @moduledoc  """
@@ -596,7 +596,7 @@ defmodule GetSupportUser do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_support_user.html).
   """
 
-  defstruct []
+  defstruct "@type": "getSupportUser"
 end
 defmodule GetSavedAnimations do
   @moduledoc  """
@@ -607,7 +607,7 @@ defmodule GetSavedAnimations do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_saved_animations.html).
   """
 
-  defstruct []
+  defstruct "@type": "getSavedAnimations"
 end
 defmodule GetSecretChat do
   @moduledoc  """
@@ -621,7 +621,7 @@ defmodule GetSecretChat do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_secret_chat.html).
   """
 
-  defstruct [:secret_chat_id]
+  defstruct "@type": "getSecretChat", secret_chat_id: nil
 end
 defmodule ResetAllNotificationSettings do
   @moduledoc  """
@@ -632,7 +632,7 @@ defmodule ResetAllNotificationSettings do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1reset_all_notification_settings.html).
   """
 
-  defstruct []
+  defstruct "@type": "resetAllNotificationSettings"
 end
 defmodule SetNetworkType do
   @moduledoc  """
@@ -646,7 +646,7 @@ defmodule SetNetworkType do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_network_type.html).
   """
 
-  defstruct [:type]
+  defstruct "@type": "setNetworkType", type: nil
 end
 defmodule CreateSecretChat do
   @moduledoc  """
@@ -660,7 +660,7 @@ defmodule CreateSecretChat do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1create_secret_chat.html).
   """
 
-  defstruct [:secret_chat_id]
+  defstruct "@type": "createSecretChat", secret_chat_id: nil
 end
 defmodule GetStorageStatistics do
   @moduledoc  """
@@ -674,7 +674,7 @@ defmodule GetStorageStatistics do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_storage_statistics.html).
   """
 
-  defstruct [:chat_limit]
+  defstruct "@type": "getStorageStatistics", chat_limit: nil
 end
 defmodule GetTemporaryPasswordState do
   @moduledoc  """
@@ -685,7 +685,7 @@ defmodule GetTemporaryPasswordState do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_temporary_password_state.html).
   """
 
-  defstruct []
+  defstruct "@type": "getTemporaryPasswordState"
 end
 defmodule CheckChangePhoneNumberCode do
   @moduledoc  """
@@ -699,7 +699,7 @@ defmodule CheckChangePhoneNumberCode do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1check_change_phone_number_code.html).
   """
 
-  defstruct [:code]
+  defstruct "@type": "checkChangePhoneNumberCode", code: nil
 end
 defmodule TestCallVectorStringObject do
   @moduledoc  """
@@ -713,7 +713,7 @@ defmodule TestCallVectorStringObject do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1test_call_vector_string_object.html).
   """
 
-  defstruct [:x]
+  defstruct "@type": "testCallVectorStringObject", x: nil
 end
 defmodule ImportContacts do
   @moduledoc  """
@@ -727,7 +727,7 @@ defmodule ImportContacts do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1import_contacts.html).
   """
 
-  defstruct [:contacts]
+  defstruct "@type": "importContacts", contacts: nil
 end
 defmodule CreateTemporaryPassword do
   @moduledoc  """
@@ -742,7 +742,7 @@ defmodule CreateTemporaryPassword do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1create_temporary_password.html).
   """
 
-  defstruct [:password, :valid_for]
+  defstruct "@type": "createTemporaryPassword", password: nil, valid_for: nil
 end
 defmodule RegisterDevice do
   @moduledoc  """
@@ -756,7 +756,7 @@ defmodule RegisterDevice do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1register_device.html).
   """
 
-  defstruct [:device_token]
+  defstruct "@type": "registerDevice", device_token: nil
 end
 defmodule SetUserPrivacySettingRules do
   @moduledoc  """
@@ -771,7 +771,7 @@ defmodule SetUserPrivacySettingRules do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_user_privacy_setting_rules.html).
   """
 
-  defstruct [:setting, :rules]
+  defstruct "@type": "setUserPrivacySettingRules", setting: nil, rules: nil
 end
 defmodule ReportChat do
   @moduledoc  """
@@ -786,7 +786,7 @@ defmodule ReportChat do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1report_chat.html).
   """
 
-  defstruct [:chat_id, :reason]
+  defstruct "@type": "reportChat", chat_id: nil, reason: nil
 end
 defmodule AcceptCall do
   @moduledoc  """
@@ -801,7 +801,7 @@ defmodule AcceptCall do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1accept_call.html).
   """
 
-  defstruct [:call_id, :protocol]
+  defstruct "@type": "acceptCall", call_id: nil, protocol: nil
 end
 defmodule SetChatPhoto do
   @moduledoc  """
@@ -816,7 +816,7 @@ defmodule SetChatPhoto do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_chat_photo.html).
   """
 
-  defstruct [:chat_id, :photo]
+  defstruct "@type": "setChatPhoto", chat_id: nil, photo: nil
 end
 defmodule CreateBasicGroupChat do
   @moduledoc  """
@@ -830,7 +830,7 @@ defmodule CreateBasicGroupChat do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1create_basic_group_chat.html).
   """
 
-  defstruct [:basic_group_id]
+  defstruct "@type": "createBasicGroupChat", basic_group_id: nil
 end
 defmodule GetFavoriteStickers do
   @moduledoc  """
@@ -841,7 +841,7 @@ defmodule GetFavoriteStickers do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_favorite_stickers.html).
   """
 
-  defstruct []
+  defstruct "@type": "getFavoriteStickers"
 end
 defmodule CreateNewStickerSet do
   @moduledoc  """
@@ -859,7 +859,7 @@ defmodule CreateNewStickerSet do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1create_new_sticker_set.html).
   """
 
-  defstruct [:user_id, :title, :name, :is_masks, :stickers]
+  defstruct "@type": "createNewStickerSet", user_id: nil, title: nil, name: nil, is_masks: nil, stickers: nil
 end
 defmodule SearchChatMembers do
   @moduledoc  """
@@ -875,7 +875,7 @@ defmodule SearchChatMembers do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1search_chat_members.html).
   """
 
-  defstruct [:chat_id, :query, :limit]
+  defstruct "@type": "searchChatMembers", chat_id: nil, query: nil, limit: nil
 end
 defmodule BlockUser do
   @moduledoc  """
@@ -889,7 +889,7 @@ defmodule BlockUser do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1block_user.html).
   """
 
-  defstruct [:user_id]
+  defstruct "@type": "blockUser", user_id: nil
 end
 defmodule OpenChat do
   @moduledoc  """
@@ -903,7 +903,7 @@ defmodule OpenChat do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1open_chat.html).
   """
 
-  defstruct [:chat_id]
+  defstruct "@type": "openChat", chat_id: nil
 end
 defmodule SetGameScore do
   @moduledoc  """
@@ -922,7 +922,7 @@ defmodule SetGameScore do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_game_score.html).
   """
 
-  defstruct [:chat_id, :message_id, :edit_message, :user_id, :score, :force]
+  defstruct "@type": "setGameScore", chat_id: nil, message_id: nil, edit_message: nil, user_id: nil, score: nil, force: nil
 end
 defmodule EditInlineMessageReplyMarkup do
   @moduledoc  """
@@ -937,7 +937,7 @@ defmodule EditInlineMessageReplyMarkup do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1edit_inline_message_reply_markup.html).
   """
 
-  defstruct [:inline_message_id, :reply_markup]
+  defstruct "@type": "editInlineMessageReplyMarkup", inline_message_id: nil, reply_markup: nil
 end
 defmodule DeleteSavedOrderInfo do
   @moduledoc  """
@@ -948,7 +948,7 @@ defmodule DeleteSavedOrderInfo do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1delete_saved_order_info.html).
   """
 
-  defstruct []
+  defstruct "@type": "deleteSavedOrderInfo"
 end
 defmodule SearchMessages do
   @moduledoc  """
@@ -966,7 +966,7 @@ defmodule SearchMessages do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1search_messages.html).
   """
 
-  defstruct [:query, :offset_date, :offset_chat_id, :offset_message_id, :limit]
+  defstruct "@type": "searchMessages", query: nil, offset_date: nil, offset_chat_id: nil, offset_message_id: nil, limit: nil
 end
 defmodule GetFile do
   @moduledoc  """
@@ -980,7 +980,7 @@ defmodule GetFile do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_file.html).
   """
 
-  defstruct [:file_id]
+  defstruct "@type": "getFile", file_id: nil
 end
 defmodule SendChatAction do
   @moduledoc  """
@@ -995,7 +995,7 @@ defmodule SendChatAction do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1send_chat_action.html).
   """
 
-  defstruct [:chat_id, :action]
+  defstruct "@type": "sendChatAction", chat_id: nil, action: nil
 end
 defmodule SetPinnedChats do
   @moduledoc  """
@@ -1009,7 +1009,7 @@ defmodule SetPinnedChats do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_pinned_chats.html).
   """
 
-  defstruct [:chat_ids]
+  defstruct "@type": "setPinnedChats", chat_ids: nil
 end
 defmodule ClearRecentStickers do
   @moduledoc  """
@@ -1023,7 +1023,7 @@ defmodule ClearRecentStickers do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1clear_recent_stickers.html).
   """
 
-  defstruct [:is_attached]
+  defstruct "@type": "clearRecentStickers", is_attached: nil
 end
 defmodule UpgradeBasicGroupChatToSupergroupChat do
   @moduledoc  """
@@ -1037,7 +1037,7 @@ defmodule UpgradeBasicGroupChatToSupergroupChat do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1upgrade_basic_group_chat_to_supergroup_chat.html).
   """
 
-  defstruct [:chat_id]
+  defstruct "@type": "upgradeBasicGroupChatToSupergroupChat", chat_id: nil
 end
 defmodule ChangeChatReportSpamState do
   @moduledoc  """
@@ -1052,7 +1052,7 @@ defmodule ChangeChatReportSpamState do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1change_chat_report_spam_state.html).
   """
 
-  defstruct [:chat_id, :is_spam_chat]
+  defstruct "@type": "changeChatReportSpamState", chat_id: nil, is_spam_chat: nil
 end
 defmodule GetMessage do
   @moduledoc  """
@@ -1067,7 +1067,7 @@ defmodule GetMessage do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_message.html).
   """
 
-  defstruct [:chat_id, :message_id]
+  defstruct "@type": "getMessage", chat_id: nil, message_id: nil
 end
 defmodule TestCallVectorString do
   @moduledoc  """
@@ -1081,7 +1081,7 @@ defmodule TestCallVectorString do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1test_call_vector_string.html).
   """
 
-  defstruct [:x]
+  defstruct "@type": "testCallVectorString", x: nil
 end
 defmodule DeleteFile do
   @moduledoc  """
@@ -1095,7 +1095,7 @@ defmodule DeleteFile do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1delete_file.html).
   """
 
-  defstruct [:file_id]
+  defstruct "@type": "deleteFile", file_id: nil
 end
 defmodule DownloadFile do
   @moduledoc  """
@@ -1110,7 +1110,7 @@ defmodule DownloadFile do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1download_file.html).
   """
 
-  defstruct [:file_id, :priority]
+  defstruct "@type": "downloadFile", file_id: nil, priority: nil
 end
 defmodule TestCallVectorInt do
   @moduledoc  """
@@ -1124,7 +1124,7 @@ defmodule TestCallVectorInt do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1test_call_vector_int.html).
   """
 
-  defstruct [:x]
+  defstruct "@type": "testCallVectorInt", x: nil
 end
 defmodule GetArchivedStickerSets do
   @moduledoc  """
@@ -1140,7 +1140,7 @@ defmodule GetArchivedStickerSets do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_archived_sticker_sets.html).
   """
 
-  defstruct [:is_masks, :offset_sticker_set_id, :limit]
+  defstruct "@type": "getArchivedStickerSets", is_masks: nil, offset_sticker_set_id: nil, limit: nil
 end
 defmodule DeleteChatMessagesFromUser do
   @moduledoc  """
@@ -1155,7 +1155,7 @@ defmodule DeleteChatMessagesFromUser do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1delete_chat_messages_from_user.html).
   """
 
-  defstruct [:chat_id, :user_id]
+  defstruct "@type": "deleteChatMessagesFromUser", chat_id: nil, user_id: nil
 end
 defmodule EditInlineMessageCaption do
   @moduledoc  """
@@ -1171,7 +1171,7 @@ defmodule EditInlineMessageCaption do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1edit_inline_message_caption.html).
   """
 
-  defstruct [:inline_message_id, :reply_markup, :caption]
+  defstruct "@type": "editInlineMessageCaption", inline_message_id: nil, reply_markup: nil, caption: nil
 end
 defmodule GetGroupsInCommon do
   @moduledoc  """
@@ -1187,7 +1187,7 @@ defmodule GetGroupsInCommon do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_groups_in_common.html).
   """
 
-  defstruct [:user_id, :offset_chat_id, :limit]
+  defstruct "@type": "getGroupsInCommon", user_id: nil, offset_chat_id: nil, limit: nil
 end
 defmodule SetOption do
   @moduledoc  """
@@ -1202,7 +1202,7 @@ defmodule SetOption do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_option.html).
   """
 
-  defstruct [:name, :value]
+  defstruct "@type": "setOption", name: nil, value: nil
 end
 defmodule SetBotUpdatesStatus do
   @moduledoc  """
@@ -1217,7 +1217,7 @@ defmodule SetBotUpdatesStatus do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_bot_updates_status.html).
   """
 
-  defstruct [:pending_update_count, :error_message]
+  defstruct "@type": "setBotUpdatesStatus", pending_update_count: nil, error_message: nil
 end
 defmodule GetRecoveryEmailAddress do
   @moduledoc  """
@@ -1231,7 +1231,7 @@ defmodule GetRecoveryEmailAddress do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_recovery_email_address.html).
   """
 
-  defstruct [:password]
+  defstruct "@type": "getRecoveryEmailAddress", password: nil
 end
 defmodule ReorderInstalledStickerSets do
   @moduledoc  """
@@ -1246,7 +1246,7 @@ defmodule ReorderInstalledStickerSets do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1reorder_installed_sticker_sets.html).
   """
 
-  defstruct [:is_masks, :sticker_set_ids]
+  defstruct "@type": "reorderInstalledStickerSets", is_masks: nil, sticker_set_ids: nil
 end
 defmodule SearchChats do
   @moduledoc  """
@@ -1261,7 +1261,7 @@ defmodule SearchChats do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1search_chats.html).
   """
 
-  defstruct [:query, :limit]
+  defstruct "@type": "searchChats", query: nil, limit: nil
 end
 defmodule RemoveRecentSticker do
   @moduledoc  """
@@ -1276,7 +1276,7 @@ defmodule RemoveRecentSticker do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1remove_recent_sticker.html).
   """
 
-  defstruct [:is_attached, :sticker]
+  defstruct "@type": "removeRecentSticker", is_attached: nil, sticker: nil
 end
 defmodule RemoveRecentHashtag do
   @moduledoc  """
@@ -1290,7 +1290,7 @@ defmodule RemoveRecentHashtag do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1remove_recent_hashtag.html).
   """
 
-  defstruct [:hashtag]
+  defstruct "@type": "removeRecentHashtag", hashtag: nil
 end
 defmodule ChangeImportedContacts do
   @moduledoc  """
@@ -1304,7 +1304,7 @@ defmodule ChangeImportedContacts do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1change_imported_contacts.html).
   """
 
-  defstruct [:contacts]
+  defstruct "@type": "changeImportedContacts", contacts: nil
 end
 defmodule Close do
   @moduledoc  """
@@ -1315,7 +1315,7 @@ defmodule Close do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1close.html).
   """
 
-  defstruct []
+  defstruct "@type": "close"
 end
 defmodule GetUserPrivacySettingRules do
   @moduledoc  """
@@ -1329,7 +1329,7 @@ defmodule GetUserPrivacySettingRules do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_user_privacy_setting_rules.html).
   """
 
-  defstruct [:setting]
+  defstruct "@type": "getUserPrivacySettingRules", setting: nil
 end
 defmodule FinishFileGeneration do
   @moduledoc  """
@@ -1344,7 +1344,7 @@ defmodule FinishFileGeneration do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1finish_file_generation.html).
   """
 
-  defstruct [:generation_id, :error]
+  defstruct "@type": "finishFileGeneration", generation_id: nil, error: nil
 end
 defmodule GetPasswordState do
   @moduledoc  """
@@ -1355,7 +1355,7 @@ defmodule GetPasswordState do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_password_state.html).
   """
 
-  defstruct []
+  defstruct "@type": "getPasswordState"
 end
 defmodule GetChatEventLog do
   @moduledoc  """
@@ -1374,7 +1374,7 @@ defmodule GetChatEventLog do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_chat_event_log.html).
   """
 
-  defstruct [:chat_id, :query, :from_event_id, :limit, :filters, :user_ids]
+  defstruct "@type": "getChatEventLog", chat_id: nil, query: nil, from_event_id: nil, limit: nil, filters: nil, user_ids: nil
 end
 defmodule SendMessageAlbum do
   @moduledoc  """
@@ -1392,7 +1392,7 @@ defmodule SendMessageAlbum do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1send_message_album.html).
   """
 
-  defstruct [:chat_id, :reply_to_message_id, :disable_notification, :from_background, :input_message_contents]
+  defstruct "@type": "sendMessageAlbum", chat_id: nil, reply_to_message_id: nil, disable_notification: nil, from_background: nil, input_message_contents: nil
 end
 defmodule SearchCallMessages do
   @moduledoc  """
@@ -1408,7 +1408,7 @@ defmodule SearchCallMessages do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1search_call_messages.html).
   """
 
-  defstruct [:from_message_id, :limit, :only_missed]
+  defstruct "@type": "searchCallMessages", from_message_id: nil, limit: nil, only_missed: nil
 end
 defmodule UnblockUser do
   @moduledoc  """
@@ -1422,7 +1422,7 @@ defmodule UnblockUser do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1unblock_user.html).
   """
 
-  defstruct [:user_id]
+  defstruct "@type": "unblockUser", user_id: nil
 end
 defmodule GetChat do
   @moduledoc  """
@@ -1436,7 +1436,7 @@ defmodule GetChat do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_chat.html).
   """
 
-  defstruct [:chat_id]
+  defstruct "@type": "getChat", chat_id: nil
 end
 defmodule CancelDownloadFile do
   @moduledoc  """
@@ -1450,7 +1450,7 @@ defmodule CancelDownloadFile do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1cancel_download_file.html).
   """
 
-  defstruct [:file_id]
+  defstruct "@type": "cancelDownloadFile", file_id: nil
 end
 defmodule AddRecentSticker do
   @moduledoc  """
@@ -1465,7 +1465,7 @@ defmodule AddRecentSticker do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1add_recent_sticker.html).
   """
 
-  defstruct [:is_attached, :sticker]
+  defstruct "@type": "addRecentSticker", is_attached: nil, sticker: nil
 end
 defmodule DeleteProfilePhoto do
   @moduledoc  """
@@ -1479,7 +1479,7 @@ defmodule DeleteProfilePhoto do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1delete_profile_photo.html).
   """
 
-  defstruct [:profile_photo_id]
+  defstruct "@type": "deleteProfilePhoto", profile_photo_id: nil
 end
 defmodule GetPaymentForm do
   @moduledoc  """
@@ -1494,7 +1494,7 @@ defmodule GetPaymentForm do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_payment_form.html).
   """
 
-  defstruct [:chat_id, :message_id]
+  defstruct "@type": "getPaymentForm", chat_id: nil, message_id: nil
 end
 defmodule EditMessageLiveLocation do
   @moduledoc  """
@@ -1511,7 +1511,7 @@ defmodule EditMessageLiveLocation do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1edit_message_live_location.html).
   """
 
-  defstruct [:chat_id, :message_id, :reply_markup, :location]
+  defstruct "@type": "editMessageLiveLocation", chat_id: nil, message_id: nil, reply_markup: nil, location: nil
 end
 defmodule SetChatDraftMessage do
   @moduledoc  """
@@ -1526,7 +1526,7 @@ defmodule SetChatDraftMessage do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_chat_draft_message.html).
   """
 
-  defstruct [:chat_id, :draft_message]
+  defstruct "@type": "setChatDraftMessage", chat_id: nil, draft_message: nil
 end
 defmodule DeleteAccount do
   @moduledoc  """
@@ -1540,7 +1540,7 @@ defmodule DeleteAccount do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1delete_account.html).
   """
 
-  defstruct [:reason]
+  defstruct "@type": "deleteAccount", reason: nil
 end
 defmodule AnswerShippingQuery do
   @moduledoc  """
@@ -1556,7 +1556,7 @@ defmodule AnswerShippingQuery do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1answer_shipping_query.html).
   """
 
-  defstruct [:shipping_query_id, :shipping_options, :error_message]
+  defstruct "@type": "answerShippingQuery", shipping_query_id: nil, shipping_options: nil, error_message: nil
 end
 defmodule ToggleSupergroupInvites do
   @moduledoc  """
@@ -1571,7 +1571,7 @@ defmodule ToggleSupergroupInvites do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1toggle_supergroup_invites.html).
   """
 
-  defstruct [:supergroup_id, :anyone_can_invite]
+  defstruct "@type": "toggleSupergroupInvites", supergroup_id: nil, anyone_can_invite: nil
 end
 defmodule RecoverAuthenticationPassword do
   @moduledoc  """
@@ -1585,7 +1585,7 @@ defmodule RecoverAuthenticationPassword do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1recover_authentication_password.html).
   """
 
-  defstruct [:recovery_code]
+  defstruct "@type": "recoverAuthenticationPassword", recovery_code: nil
 end
 defmodule EditMessageReplyMarkup do
   @moduledoc  """
@@ -1601,7 +1601,7 @@ defmodule EditMessageReplyMarkup do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1edit_message_reply_markup.html).
   """
 
-  defstruct [:chat_id, :message_id, :reply_markup]
+  defstruct "@type": "editMessageReplyMarkup", chat_id: nil, message_id: nil, reply_markup: nil
 end
 defmodule SetRecoveryEmailAddress do
   @moduledoc  """
@@ -1616,7 +1616,7 @@ defmodule SetRecoveryEmailAddress do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_recovery_email_address.html).
   """
 
-  defstruct [:password, :new_recovery_email_address]
+  defstruct "@type": "setRecoveryEmailAddress", password: nil, new_recovery_email_address: nil
 end
 defmodule CancelUploadFile do
   @moduledoc  """
@@ -1630,7 +1630,7 @@ defmodule CancelUploadFile do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1cancel_upload_file.html).
   """
 
-  defstruct [:file_id]
+  defstruct "@type": "cancelUploadFile", file_id: nil
 end
 defmodule DeleteMessages do
   @moduledoc  """
@@ -1646,7 +1646,7 @@ defmodule DeleteMessages do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1delete_messages.html).
   """
 
-  defstruct [:chat_id, :message_ids, :revoke]
+  defstruct "@type": "deleteMessages", chat_id: nil, message_ids: nil, revoke: nil
 end
 defmodule GetBasicGroupFullInfo do
   @moduledoc  """
@@ -1660,7 +1660,7 @@ defmodule GetBasicGroupFullInfo do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_basic_group_full_info.html).
   """
 
-  defstruct [:basic_group_id]
+  defstruct "@type": "getBasicGroupFullInfo", basic_group_id: nil
 end
 defmodule DeleteSupergroup do
   @moduledoc  """
@@ -1674,7 +1674,7 @@ defmodule DeleteSupergroup do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1delete_supergroup.html).
   """
 
-  defstruct [:supergroup_id]
+  defstruct "@type": "deleteSupergroup", supergroup_id: nil
 end
 defmodule GetRecentStickers do
   @moduledoc  """
@@ -1688,7 +1688,7 @@ defmodule GetRecentStickers do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_recent_stickers.html).
   """
 
-  defstruct [:is_attached]
+  defstruct "@type": "getRecentStickers", is_attached: nil
 end
 defmodule RequestPasswordRecovery do
   @moduledoc  """
@@ -1699,7 +1699,7 @@ defmodule RequestPasswordRecovery do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1request_password_recovery.html).
   """
 
-  defstruct []
+  defstruct "@type": "requestPasswordRecovery"
 end
 defmodule ProcessDcUpdate do
   @moduledoc  """
@@ -1714,7 +1714,7 @@ defmodule ProcessDcUpdate do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1process_dc_update.html).
   """
 
-  defstruct [:dc, :addr]
+  defstruct "@type": "processDcUpdate", dc: nil, addr: nil
 end
 defmodule UploadStickerFile do
   @moduledoc  """
@@ -1729,7 +1729,7 @@ defmodule UploadStickerFile do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1upload_sticker_file.html).
   """
 
-  defstruct [:user_id, :png_sticker]
+  defstruct "@type": "uploadStickerFile", user_id: nil, png_sticker: nil
 end
 defmodule LogOut do
   @moduledoc  """
@@ -1740,7 +1740,7 @@ defmodule LogOut do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1log_out.html).
   """
 
-  defstruct []
+  defstruct "@type": "logOut"
 end
 defmodule EditMessageCaption do
   @moduledoc  """
@@ -1757,7 +1757,7 @@ defmodule EditMessageCaption do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1edit_message_caption.html).
   """
 
-  defstruct [:chat_id, :message_id, :reply_markup, :caption]
+  defstruct "@type": "editMessageCaption", chat_id: nil, message_id: nil, reply_markup: nil, caption: nil
 end
 defmodule ViewMessages do
   @moduledoc  """
@@ -1773,7 +1773,7 @@ defmodule ViewMessages do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1view_messages.html).
   """
 
-  defstruct [:chat_id, :message_ids, :force_read]
+  defstruct "@type": "viewMessages", chat_id: nil, message_ids: nil, force_read: nil
 end
 defmodule AnswerCustomQuery do
   @moduledoc  """
@@ -1788,7 +1788,7 @@ defmodule AnswerCustomQuery do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1answer_custom_query.html).
   """
 
-  defstruct [:custom_query_id, :data]
+  defstruct "@type": "answerCustomQuery", custom_query_id: nil, data: nil
 end
 defmodule AddChatMember do
   @moduledoc  """
@@ -1804,7 +1804,7 @@ defmodule AddChatMember do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1add_chat_member.html).
   """
 
-  defstruct [:chat_id, :user_id, :forward_limit]
+  defstruct "@type": "addChatMember", chat_id: nil, user_id: nil, forward_limit: nil
 end
 defmodule SetNotificationSettings do
   @moduledoc  """
@@ -1819,7 +1819,7 @@ defmodule SetNotificationSettings do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_notification_settings.html).
   """
 
-  defstruct [:scope, :notification_settings]
+  defstruct "@type": "setNotificationSettings", scope: nil, notification_settings: nil
 end
 defmodule SearchHashtags do
   @moduledoc  """
@@ -1834,7 +1834,7 @@ defmodule SearchHashtags do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1search_hashtags.html).
   """
 
-  defstruct [:prefix, :limit]
+  defstruct "@type": "searchHashtags", prefix: nil, limit: nil
 end
 defmodule GetWallpapers do
   @moduledoc  """
@@ -1845,7 +1845,7 @@ defmodule GetWallpapers do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_wallpapers.html).
   """
 
-  defstruct []
+  defstruct "@type": "getWallpapers"
 end
 defmodule GetInlineGameHighScores do
   @moduledoc  """
@@ -1860,7 +1860,7 @@ defmodule GetInlineGameHighScores do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_inline_game_high_scores.html).
   """
 
-  defstruct [:inline_message_id, :user_id]
+  defstruct "@type": "getInlineGameHighScores", inline_message_id: nil, user_id: nil
 end
 defmodule UnpinSupergroupMessage do
   @moduledoc  """
@@ -1874,7 +1874,7 @@ defmodule UnpinSupergroupMessage do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1unpin_supergroup_message.html).
   """
 
-  defstruct [:supergroup_id]
+  defstruct "@type": "unpinSupergroupMessage", supergroup_id: nil
 end
 defmodule GetTextEntities do
   @moduledoc  """
@@ -1888,7 +1888,7 @@ defmodule GetTextEntities do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_text_entities.html).
   """
 
-  defstruct [:text]
+  defstruct "@type": "getTextEntities", text: nil
 end
 defmodule ToggleSupergroupIsAllHistoryAvailable do
   @moduledoc  """
@@ -1903,7 +1903,7 @@ defmodule ToggleSupergroupIsAllHistoryAvailable do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1toggle_supergroup_is_all_history_available.html).
   """
 
-  defstruct [:supergroup_id, :is_all_history_available]
+  defstruct "@type": "toggleSupergroupIsAllHistoryAvailable", supergroup_id: nil, is_all_history_available: nil
 end
 defmodule CheckAuthenticationBotToken do
   @moduledoc  """
@@ -1917,7 +1917,7 @@ defmodule CheckAuthenticationBotToken do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1check_authentication_bot_token.html).
   """
 
-  defstruct [:token]
+  defstruct "@type": "checkAuthenticationBotToken", token: nil
 end
 defmodule OptimizeStorage do
   @moduledoc  """
@@ -1938,7 +1938,7 @@ defmodule OptimizeStorage do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1optimize_storage.html).
   """
 
-  defstruct [:size, :ttl, :count, :immunity_delay, :file_types, :chat_ids, :exclude_chat_ids, :chat_limit]
+  defstruct "@type": "optimizeStorage", size: nil, ttl: nil, count: nil, immunity_delay: nil, file_types: nil, chat_ids: nil, exclude_chat_ids: nil, chat_limit: nil
 end
 defmodule ClearImportedContacts do
   @moduledoc  """
@@ -1949,7 +1949,7 @@ defmodule ClearImportedContacts do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1clear_imported_contacts.html).
   """
 
-  defstruct []
+  defstruct "@type": "clearImportedContacts"
 end
 defmodule SetAlarm do
   @moduledoc  """
@@ -1963,7 +1963,7 @@ defmodule SetAlarm do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_alarm.html).
   """
 
-  defstruct [:seconds]
+  defstruct "@type": "setAlarm", seconds: nil
 end
 defmodule GetRecentInlineBots do
   @moduledoc  """
@@ -1974,7 +1974,7 @@ defmodule GetRecentInlineBots do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_recent_inline_bots.html).
   """
 
-  defstruct []
+  defstruct "@type": "getRecentInlineBots"
 end
 defmodule GetNetworkStatistics do
   @moduledoc  """
@@ -1988,7 +1988,7 @@ defmodule GetNetworkStatistics do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_network_statistics.html).
   """
 
-  defstruct [:only_current]
+  defstruct "@type": "getNetworkStatistics", only_current: nil
 end
 defmodule GetCallbackQueryAnswer do
   @moduledoc  """
@@ -2004,7 +2004,7 @@ defmodule GetCallbackQueryAnswer do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_callback_query_answer.html).
   """
 
-  defstruct [:chat_id, :message_id, :payload]
+  defstruct "@type": "getCallbackQueryAnswer", chat_id: nil, message_id: nil, payload: nil
 end
 defmodule GetBasicGroup do
   @moduledoc  """
@@ -2018,7 +2018,7 @@ defmodule GetBasicGroup do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_basic_group.html).
   """
 
-  defstruct [:basic_group_id]
+  defstruct "@type": "getBasicGroup", basic_group_id: nil
 end
 defmodule ResendChangePhoneNumberCode do
   @moduledoc  """
@@ -2029,7 +2029,7 @@ defmodule ResendChangePhoneNumberCode do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1resend_change_phone_number_code.html).
   """
 
-  defstruct []
+  defstruct "@type": "resendChangePhoneNumberCode"
 end
 defmodule GetChatHistory do
   @moduledoc  """
@@ -2047,7 +2047,7 @@ defmodule GetChatHistory do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_chat_history.html).
   """
 
-  defstruct [:chat_id, :from_message_id, :offset, :limit, :only_local]
+  defstruct "@type": "getChatHistory", chat_id: nil, from_message_id: nil, offset: nil, limit: nil, only_local: nil
 end
 defmodule GetSupergroup do
   @moduledoc  """
@@ -2061,7 +2061,7 @@ defmodule GetSupergroup do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_supergroup.html).
   """
 
-  defstruct [:supergroup_id]
+  defstruct "@type": "getSupergroup", supergroup_id: nil
 end
 defmodule GetPaymentReceipt do
   @moduledoc  """
@@ -2076,7 +2076,7 @@ defmodule GetPaymentReceipt do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_payment_receipt.html).
   """
 
-  defstruct [:chat_id, :message_id]
+  defstruct "@type": "getPaymentReceipt", chat_id: nil, message_id: nil
 end
 defmodule SendMessage do
   @moduledoc  """
@@ -2095,7 +2095,7 @@ defmodule SendMessage do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1send_message.html).
   """
 
-  defstruct [:chat_id, :reply_to_message_id, :disable_notification, :from_background, :reply_markup, :input_message_content]
+  defstruct "@type": "sendMessage", chat_id: nil, reply_to_message_id: nil, disable_notification: nil, from_background: nil, reply_markup: nil, input_message_content: nil
 end
 defmodule GetGameHighScores do
   @moduledoc  """
@@ -2111,7 +2111,7 @@ defmodule GetGameHighScores do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_game_high_scores.html).
   """
 
-  defstruct [:chat_id, :message_id, :user_id]
+  defstruct "@type": "getGameHighScores", chat_id: nil, message_id: nil, user_id: nil
 end
 defmodule SetPassword do
   @moduledoc  """
@@ -2129,7 +2129,7 @@ defmodule SetPassword do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_password.html).
   """
 
-  defstruct [:old_password, :new_password, :new_hint, :set_recovery_email_address, :new_recovery_email_address]
+  defstruct "@type": "setPassword", old_password: nil, new_password: nil, new_hint: nil, set_recovery_email_address: nil, new_recovery_email_address: nil
 end
 defmodule UploadFile do
   @moduledoc  """
@@ -2145,7 +2145,7 @@ defmodule UploadFile do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1upload_file.html).
   """
 
-  defstruct [:file, :file_type, :priority]
+  defstruct "@type": "uploadFile", file: nil, file_type: nil, priority: nil
 end
 defmodule AddSavedAnimation do
   @moduledoc  """
@@ -2159,7 +2159,7 @@ defmodule AddSavedAnimation do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1add_saved_animation.html).
   """
 
-  defstruct [:animation]
+  defstruct "@type": "addSavedAnimation", animation: nil
 end
 defmodule GetFileExtension do
   @moduledoc  """
@@ -2173,7 +2173,7 @@ defmodule GetFileExtension do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_file_extension.html).
   """
 
-  defstruct [:mime_type]
+  defstruct "@type": "getFileExtension", mime_type: nil
 end
 defmodule SetProfilePhoto do
   @moduledoc  """
@@ -2187,7 +2187,7 @@ defmodule SetProfilePhoto do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_profile_photo.html).
   """
 
-  defstruct [:photo]
+  defstruct "@type": "setProfilePhoto", photo: nil
 end
 defmodule SendCustomRequest do
   @moduledoc  """
@@ -2202,7 +2202,7 @@ defmodule SendCustomRequest do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1send_custom_request.html).
   """
 
-  defstruct [:method, :parameters]
+  defstruct "@type": "sendCustomRequest", method: nil, parameters: nil
 end
 defmodule AddStickerToSet do
   @moduledoc  """
@@ -2218,7 +2218,7 @@ defmodule AddStickerToSet do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1add_sticker_to_set.html).
   """
 
-  defstruct [:user_id, :name, :sticker]
+  defstruct "@type": "addStickerToSet", user_id: nil, name: nil, sticker: nil
 end
 defmodule GetChats do
   @moduledoc  """
@@ -2234,7 +2234,7 @@ defmodule GetChats do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_chats.html).
   """
 
-  defstruct [:offset_order, :offset_chat_id, :limit]
+  defstruct "@type": "getChats", offset_order: nil, offset_chat_id: nil, limit: nil
 end
 defmodule TestCallBytes do
   @moduledoc  """
@@ -2248,7 +2248,7 @@ defmodule TestCallBytes do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1test_call_bytes.html).
   """
 
-  defstruct [:x]
+  defstruct "@type": "testCallBytes", x: nil
 end
 defmodule SearchPublicChats do
   @moduledoc  """
@@ -2262,7 +2262,7 @@ defmodule SearchPublicChats do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1search_public_chats.html).
   """
 
-  defstruct [:query]
+  defstruct "@type": "searchPublicChats", query: nil
 end
 defmodule CloseSecretChat do
   @moduledoc  """
@@ -2276,7 +2276,7 @@ defmodule CloseSecretChat do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1close_secret_chat.html).
   """
 
-  defstruct [:secret_chat_id]
+  defstruct "@type": "closeSecretChat", secret_chat_id: nil
 end
 defmodule RemoveSavedAnimation do
   @moduledoc  """
@@ -2290,7 +2290,7 @@ defmodule RemoveSavedAnimation do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1remove_saved_animation.html).
   """
 
-  defstruct [:animation]
+  defstruct "@type": "removeSavedAnimation", animation: nil
 end
 defmodule GetPublicMessageLink do
   @moduledoc  """
@@ -2305,7 +2305,7 @@ defmodule GetPublicMessageLink do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_public_message_link.html).
   """
 
-  defstruct [:chat_id, :message_id]
+  defstruct "@type": "getPublicMessageLink", chat_id: nil, message_id: nil
 end
 defmodule ResendAuthenticationCode do
   @moduledoc  """
@@ -2316,7 +2316,7 @@ defmodule ResendAuthenticationCode do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1resend_authentication_code.html).
   """
 
-  defstruct []
+  defstruct "@type": "resendAuthenticationCode"
 end
 defmodule GetUserProfilePhotos do
   @moduledoc  """
@@ -2332,7 +2332,7 @@ defmodule GetUserProfilePhotos do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_user_profile_photos.html).
   """
 
-  defstruct [:user_id, :offset, :limit]
+  defstruct "@type": "getUserProfilePhotos", user_id: nil, offset: nil, limit: nil
 end
 defmodule SetSupergroupDescription do
   @moduledoc  """
@@ -2347,7 +2347,7 @@ defmodule SetSupergroupDescription do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_supergroup_description.html).
   """
 
-  defstruct [:supergroup_id, :description]
+  defstruct "@type": "setSupergroupDescription", supergroup_id: nil, description: nil
 end
 defmodule SetAccountTtl do
   @moduledoc  """
@@ -2361,7 +2361,7 @@ defmodule SetAccountTtl do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_account_ttl.html).
   """
 
-  defstruct [:ttl]
+  defstruct "@type": "setAccountTtl", ttl: nil
 end
 defmodule SearchSecretMessages do
   @moduledoc  """
@@ -2379,7 +2379,7 @@ defmodule SearchSecretMessages do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1search_secret_messages.html).
   """
 
-  defstruct [:chat_id, :query, :from_search_id, :limit, :filter]
+  defstruct "@type": "searchSecretMessages", chat_id: nil, query: nil, from_search_id: nil, limit: nil, filter: nil
 end
 defmodule GetWebPageInstantView do
   @moduledoc  """
@@ -2394,7 +2394,7 @@ defmodule GetWebPageInstantView do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_web_page_instant_view.html).
   """
 
-  defstruct [:url, :force_full]
+  defstruct "@type": "getWebPageInstantView", url: nil, force_full: nil
 end
 defmodule TerminateSession do
   @moduledoc  """
@@ -2408,7 +2408,7 @@ defmodule TerminateSession do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1terminate_session.html).
   """
 
-  defstruct [:session_id]
+  defstruct "@type": "terminateSession", session_id: nil
 end
 defmodule GetFileMimeType do
   @moduledoc  """
@@ -2422,7 +2422,7 @@ defmodule GetFileMimeType do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_file_mime_type.html).
   """
 
-  defstruct [:file_name]
+  defstruct "@type": "getFileMimeType", file_name: nil
 end
 defmodule GetWebPagePreview do
   @moduledoc  """
@@ -2436,7 +2436,7 @@ defmodule GetWebPagePreview do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_web_page_preview.html).
   """
 
-  defstruct [:message_text]
+  defstruct "@type": "getWebPagePreview", message_text: nil
 end
 defmodule JoinChatByInviteLink do
   @moduledoc  """
@@ -2450,7 +2450,7 @@ defmodule JoinChatByInviteLink do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1join_chat_by_invite_link.html).
   """
 
-  defstruct [:invite_link]
+  defstruct "@type": "joinChatByInviteLink", invite_link: nil
 end
 defmodule CheckAuthenticationPassword do
   @moduledoc  """
@@ -2464,7 +2464,7 @@ defmodule CheckAuthenticationPassword do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1check_authentication_password.html).
   """
 
-  defstruct [:password]
+  defstruct "@type": "checkAuthenticationPassword", password: nil
 end
 defmodule GetAccountTtl do
   @moduledoc  """
@@ -2475,7 +2475,7 @@ defmodule GetAccountTtl do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_account_ttl.html).
   """
 
-  defstruct []
+  defstruct "@type": "getAccountTtl"
 end
 defmodule AddRecentlyFoundChat do
   @moduledoc  """
@@ -2489,7 +2489,7 @@ defmodule AddRecentlyFoundChat do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1add_recently_found_chat.html).
   """
 
-  defstruct [:chat_id]
+  defstruct "@type": "addRecentlyFoundChat", chat_id: nil
 end
 defmodule AddChatMembers do
   @moduledoc  """
@@ -2504,7 +2504,7 @@ defmodule AddChatMembers do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1add_chat_members.html).
   """
 
-  defstruct [:chat_id, :user_ids]
+  defstruct "@type": "addChatMembers", chat_id: nil, user_ids: nil
 end
 defmodule SendPaymentForm do
   @moduledoc  """
@@ -2522,7 +2522,7 @@ defmodule SendPaymentForm do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1send_payment_form.html).
   """
 
-  defstruct [:chat_id, :message_id, :order_info_id, :shipping_option_id, :credentials]
+  defstruct "@type": "sendPaymentForm", chat_id: nil, message_id: nil, order_info_id: nil, shipping_option_id: nil, credentials: nil
 end
 defmodule SetChatTitle do
   @moduledoc  """
@@ -2537,7 +2537,7 @@ defmodule SetChatTitle do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_chat_title.html).
   """
 
-  defstruct [:chat_id, :title]
+  defstruct "@type": "setChatTitle", chat_id: nil, title: nil
 end
 defmodule GetSupergroupFullInfo do
   @moduledoc  """
@@ -2551,7 +2551,7 @@ defmodule GetSupergroupFullInfo do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_supergroup_full_info.html).
   """
 
-  defstruct [:supergroup_id]
+  defstruct "@type": "getSupergroupFullInfo", supergroup_id: nil
 end
 defmodule SetUsername do
   @moduledoc  """
@@ -2565,7 +2565,7 @@ defmodule SetUsername do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_username.html).
   """
 
-  defstruct [:username]
+  defstruct "@type": "setUsername", username: nil
 end
 defmodule EditInlineMessageText do
   @moduledoc  """
@@ -2581,7 +2581,7 @@ defmodule EditInlineMessageText do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1edit_inline_message_text.html).
   """
 
-  defstruct [:inline_message_id, :reply_markup, :input_message_content]
+  defstruct "@type": "editInlineMessageText", inline_message_id: nil, reply_markup: nil, input_message_content: nil
 end
 defmodule RecoverPassword do
   @moduledoc  """
@@ -2595,7 +2595,7 @@ defmodule RecoverPassword do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1recover_password.html).
   """
 
-  defstruct [:recovery_code]
+  defstruct "@type": "recoverPassword", recovery_code: nil
 end
 defmodule TestNetwork do
   @moduledoc  """
@@ -2606,7 +2606,7 @@ defmodule TestNetwork do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1test_network.html).
   """
 
-  defstruct []
+  defstruct "@type": "testNetwork"
 end
 defmodule TerminateAllOtherSessions do
   @moduledoc  """
@@ -2617,7 +2617,7 @@ defmodule TerminateAllOtherSessions do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1terminate_all_other_sessions.html).
   """
 
-  defstruct []
+  defstruct "@type": "terminateAllOtherSessions"
 end
 defmodule CreateNewSupergroupChat do
   @moduledoc  """
@@ -2633,7 +2633,7 @@ defmodule CreateNewSupergroupChat do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1create_new_supergroup_chat.html).
   """
 
-  defstruct [:title, :is_channel, :description]
+  defstruct "@type": "createNewSupergroupChat", title: nil, is_channel: nil, description: nil
 end
 defmodule GetSupergroupMembers do
   @moduledoc  """
@@ -2650,7 +2650,7 @@ defmodule GetSupergroupMembers do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_supergroup_members.html).
   """
 
-  defstruct [:supergroup_id, :filter, :offset, :limit]
+  defstruct "@type": "getSupergroupMembers", supergroup_id: nil, filter: nil, offset: nil, limit: nil
 end
 defmodule GetOption do
   @moduledoc  """
@@ -2664,7 +2664,7 @@ defmodule GetOption do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_option.html).
   """
 
-  defstruct [:name]
+  defstruct "@type": "getOption", name: nil
 end
 defmodule GetAuthorizationState do
   @moduledoc  """
@@ -2675,7 +2675,7 @@ defmodule GetAuthorizationState do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_authorization_state.html).
   """
 
-  defstruct []
+  defstruct "@type": "getAuthorizationState"
 end
 defmodule CreateNewSecretChat do
   @moduledoc  """
@@ -2689,7 +2689,7 @@ defmodule CreateNewSecretChat do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1create_new_secret_chat.html).
   """
 
-  defstruct [:user_id]
+  defstruct "@type": "createNewSecretChat", user_id: nil
 end
 defmodule GetChatMessageByDate do
   @moduledoc  """
@@ -2704,7 +2704,7 @@ defmodule GetChatMessageByDate do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_chat_message_by_date.html).
   """
 
-  defstruct [:chat_id, :date]
+  defstruct "@type": "getChatMessageByDate", chat_id: nil, date: nil
 end
 defmodule SearchPublicChat do
   @moduledoc  """
@@ -2718,7 +2718,7 @@ defmodule SearchPublicChat do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1search_public_chat.html).
   """
 
-  defstruct [:username]
+  defstruct "@type": "searchPublicChat", username: nil
 end
 defmodule AnswerInlineQuery do
   @moduledoc  """
@@ -2738,7 +2738,7 @@ defmodule AnswerInlineQuery do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1answer_inline_query.html).
   """
 
-  defstruct [:inline_query_id, :is_personal, :results, :cache_time, :next_offset, :switch_pm_text, :switch_pm_parameter]
+  defstruct "@type": "answerInlineQuery", inline_query_id: nil, is_personal: nil, results: nil, cache_time: nil, next_offset: nil, switch_pm_text: nil, switch_pm_parameter: nil
 end
 defmodule GetStickers do
   @moduledoc  """
@@ -2753,7 +2753,7 @@ defmodule GetStickers do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_stickers.html).
   """
 
-  defstruct [:emoji, :limit]
+  defstruct "@type": "getStickers", emoji: nil, limit: nil
 end
 defmodule ResetNetworkStatistics do
   @moduledoc  """
@@ -2764,7 +2764,7 @@ defmodule ResetNetworkStatistics do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1reset_network_statistics.html).
   """
 
-  defstruct []
+  defstruct "@type": "resetNetworkStatistics"
 end
 defmodule GetBlockedUsers do
   @moduledoc  """
@@ -2779,7 +2779,7 @@ defmodule GetBlockedUsers do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_blocked_users.html).
   """
 
-  defstruct [:offset, :limit]
+  defstruct "@type": "getBlockedUsers", offset: nil, limit: nil
 end
 defmodule CreateCall do
   @moduledoc  """
@@ -2794,7 +2794,7 @@ defmodule CreateCall do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1create_call.html).
   """
 
-  defstruct [:user_id, :protocol]
+  defstruct "@type": "createCall", user_id: nil, protocol: nil
 end
 defmodule ForwardMessages do
   @moduledoc  """
@@ -2813,7 +2813,7 @@ defmodule ForwardMessages do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1forward_messages.html).
   """
 
-  defstruct [:chat_id, :from_chat_id, :message_ids, :disable_notification, :from_background, :as_album]
+  defstruct "@type": "forwardMessages", chat_id: nil, from_chat_id: nil, message_ids: nil, disable_notification: nil, from_background: nil, as_album: nil
 end
 defmodule ChangePhoneNumber do
   @moduledoc  """
@@ -2829,7 +2829,7 @@ defmodule ChangePhoneNumber do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1change_phone_number.html).
   """
 
-  defstruct [:phone_number, :allow_flash_call, :is_current_phone_number]
+  defstruct "@type": "changePhoneNumber", phone_number: nil, allow_flash_call: nil, is_current_phone_number: nil
 end
 defmodule TestSquareInt do
   @moduledoc  """
@@ -2843,7 +2843,7 @@ defmodule TestSquareInt do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1test_square_int.html).
   """
 
-  defstruct [:x]
+  defstruct "@type": "testSquareInt", x: nil
 end
 defmodule GetNotificationSettings do
   @moduledoc  """
@@ -2857,7 +2857,7 @@ defmodule GetNotificationSettings do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_notification_settings.html).
   """
 
-  defstruct [:scope]
+  defstruct "@type": "getNotificationSettings", scope: nil
 end
 defmodule GetStorageStatisticsFast do
   @moduledoc  """
@@ -2868,7 +2868,7 @@ defmodule GetStorageStatisticsFast do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_storage_statistics_fast.html).
   """
 
-  defstruct []
+  defstruct "@type": "getStorageStatisticsFast"
 end
 defmodule Destroy do
   @moduledoc  """
@@ -2879,7 +2879,7 @@ defmodule Destroy do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1destroy.html).
   """
 
-  defstruct []
+  defstruct "@type": "destroy"
 end
 defmodule GetActiveSessions do
   @moduledoc  """
@@ -2890,7 +2890,7 @@ defmodule GetActiveSessions do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_active_sessions.html).
   """
 
-  defstruct []
+  defstruct "@type": "getActiveSessions"
 end
 defmodule SetName do
   @moduledoc  """
@@ -2905,7 +2905,7 @@ defmodule SetName do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_name.html).
   """
 
-  defstruct [:first_name, :last_name]
+  defstruct "@type": "setName", first_name: nil, last_name: nil
 end
 defmodule GetChatMember do
   @moduledoc  """
@@ -2920,7 +2920,7 @@ defmodule GetChatMember do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_chat_member.html).
   """
 
-  defstruct [:chat_id, :user_id]
+  defstruct "@type": "getChatMember", chat_id: nil, user_id: nil
 end
 defmodule RemoveContacts do
   @moduledoc  """
@@ -2934,7 +2934,7 @@ defmodule RemoveContacts do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1remove_contacts.html).
   """
 
-  defstruct [:user_ids]
+  defstruct "@type": "removeContacts", user_ids: nil
 end
 defmodule SetFileGenerationProgress do
   @moduledoc  """
@@ -2950,7 +2950,7 @@ defmodule SetFileGenerationProgress do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_file_generation_progress.html).
   """
 
-  defstruct [:generation_id, :expected_size, :local_prefix_size]
+  defstruct "@type": "setFileGenerationProgress", generation_id: nil, expected_size: nil, local_prefix_size: nil
 end
 defmodule ReadAllChatMentions do
   @moduledoc  """
@@ -2964,7 +2964,7 @@ defmodule ReadAllChatMentions do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1read_all_chat_mentions.html).
   """
 
-  defstruct [:chat_id]
+  defstruct "@type": "readAllChatMentions", chat_id: nil
 end
 defmodule AnswerPreCheckoutQuery do
   @moduledoc  """
@@ -2979,7 +2979,7 @@ defmodule AnswerPreCheckoutQuery do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1answer_pre_checkout_query.html).
   """
 
-  defstruct [:pre_checkout_query_id, :error_message]
+  defstruct "@type": "answerPreCheckoutQuery", pre_checkout_query_id: nil, error_message: nil
 end
 defmodule TestCallVectorIntObject do
   @moduledoc  """
@@ -2993,7 +2993,7 @@ defmodule TestCallVectorIntObject do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1test_call_vector_int_object.html).
   """
 
-  defstruct [:x]
+  defstruct "@type": "testCallVectorIntObject", x: nil
 end
 defmodule RemoveTopChat do
   @moduledoc  """
@@ -3008,7 +3008,7 @@ defmodule RemoveTopChat do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1remove_top_chat.html).
   """
 
-  defstruct [:category, :chat_id]
+  defstruct "@type": "removeTopChat", category: nil, chat_id: nil
 end
 defmodule RemoveRecentlyFoundChat do
   @moduledoc  """
@@ -3022,7 +3022,7 @@ defmodule RemoveRecentlyFoundChat do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1remove_recently_found_chat.html).
   """
 
-  defstruct [:chat_id]
+  defstruct "@type": "removeRecentlyFoundChat", chat_id: nil
 end
 defmodule SetDatabaseEncryptionKey do
   @moduledoc  """
@@ -3036,7 +3036,7 @@ defmodule SetDatabaseEncryptionKey do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_database_encryption_key.html).
   """
 
-  defstruct [:new_encryption_key]
+  defstruct "@type": "setDatabaseEncryptionKey", new_encryption_key: nil
 end
 defmodule ViewTrendingStickerSets do
   @moduledoc  """
@@ -3050,7 +3050,7 @@ defmodule ViewTrendingStickerSets do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1view_trending_sticker_sets.html).
   """
 
-  defstruct [:sticker_set_ids]
+  defstruct "@type": "viewTrendingStickerSets", sticker_set_ids: nil
 end
 defmodule SendCallRating do
   @moduledoc  """
@@ -3066,7 +3066,7 @@ defmodule SendCallRating do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1send_call_rating.html).
   """
 
-  defstruct [:call_id, :rating, :comment]
+  defstruct "@type": "sendCallRating", call_id: nil, rating: nil, comment: nil
 end
 defmodule TestCallEmpty do
   @moduledoc  """
@@ -3077,7 +3077,7 @@ defmodule TestCallEmpty do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1test_call_empty.html).
   """
 
-  defstruct []
+  defstruct "@type": "testCallEmpty"
 end
 defmodule ChangeStickerSet do
   @moduledoc  """
@@ -3093,7 +3093,7 @@ defmodule ChangeStickerSet do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1change_sticker_set.html).
   """
 
-  defstruct [:set_id, :is_installed, :is_archived]
+  defstruct "@type": "changeStickerSet", set_id: nil, is_installed: nil, is_archived: nil
 end
 defmodule SendChatScreenshotTakenNotification do
   @moduledoc  """
@@ -3107,7 +3107,7 @@ defmodule SendChatScreenshotTakenNotification do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1send_chat_screenshot_taken_notification.html).
   """
 
-  defstruct [:chat_id]
+  defstruct "@type": "sendChatScreenshotTakenNotification", chat_id: nil
 end
 defmodule ToggleChatIsPinned do
   @moduledoc  """
@@ -3122,7 +3122,7 @@ defmodule ToggleChatIsPinned do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1toggle_chat_is_pinned.html).
   """
 
-  defstruct [:chat_id, :is_pinned]
+  defstruct "@type": "toggleChatIsPinned", chat_id: nil, is_pinned: nil
 end
 defmodule RemoveStickerFromSet do
   @moduledoc  """
@@ -3136,7 +3136,7 @@ defmodule RemoveStickerFromSet do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1remove_sticker_from_set.html).
   """
 
-  defstruct [:sticker]
+  defstruct "@type": "removeStickerFromSet", sticker: nil
 end
 defmodule GetUser do
   @moduledoc  """
@@ -3150,7 +3150,7 @@ defmodule GetUser do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_user.html).
   """
 
-  defstruct [:user_id]
+  defstruct "@type": "getUser", user_id: nil
 end
 defmodule SearchStickerSet do
   @moduledoc  """
@@ -3164,7 +3164,7 @@ defmodule SearchStickerSet do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1search_sticker_set.html).
   """
 
-  defstruct [:name]
+  defstruct "@type": "searchStickerSet", name: nil
 end
 defmodule DiscardCall do
   @moduledoc  """
@@ -3181,7 +3181,7 @@ defmodule DiscardCall do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1discard_call.html).
   """
 
-  defstruct [:call_id, :is_disconnected, :duration, :connection_id]
+  defstruct "@type": "discardCall", call_id: nil, is_disconnected: nil, duration: nil, connection_id: nil
 end
 defmodule SetProxy do
   @moduledoc  """
@@ -3195,7 +3195,7 @@ defmodule SetProxy do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_proxy.html).
   """
 
-  defstruct [:proxy]
+  defstruct "@type": "setProxy", proxy: nil
 end
 defmodule AddFavoriteSticker do
   @moduledoc  """
@@ -3209,7 +3209,7 @@ defmodule AddFavoriteSticker do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1add_favorite_sticker.html).
   """
 
-  defstruct [:sticker]
+  defstruct "@type": "addFavoriteSticker", sticker: nil
 end
 defmodule EditMessageText do
   @moduledoc  """
@@ -3226,7 +3226,7 @@ defmodule EditMessageText do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1edit_message_text.html).
   """
 
-  defstruct [:chat_id, :message_id, :reply_markup, :input_message_content]
+  defstruct "@type": "editMessageText", chat_id: nil, message_id: nil, reply_markup: nil, input_message_content: nil
 end
 defmodule SetBio do
   @moduledoc  """
@@ -3240,7 +3240,7 @@ defmodule SetBio do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_bio.html).
   """
 
-  defstruct [:bio]
+  defstruct "@type": "setBio", bio: nil
 end
 defmodule GetProxy do
   @moduledoc  """
@@ -3251,7 +3251,7 @@ defmodule GetProxy do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_proxy.html).
   """
 
-  defstruct []
+  defstruct "@type": "getProxy"
 end
 defmodule GetRecentlyVisitedTMeUrls do
   @moduledoc  """
@@ -3265,7 +3265,7 @@ defmodule GetRecentlyVisitedTMeUrls do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_recently_visited_t_me_urls.html).
   """
 
-  defstruct [:referrer]
+  defstruct "@type": "getRecentlyVisitedTMeUrls", referrer: nil
 end
 defmodule SetSupergroupUsername do
   @moduledoc  """
@@ -3280,7 +3280,7 @@ defmodule SetSupergroupUsername do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_supergroup_username.html).
   """
 
-  defstruct [:supergroup_id, :username]
+  defstruct "@type": "setSupergroupUsername", supergroup_id: nil, username: nil
 end
 defmodule SetAuthenticationPhoneNumber do
   @moduledoc  """
@@ -3296,7 +3296,7 @@ defmodule SetAuthenticationPhoneNumber do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_authentication_phone_number.html).
   """
 
-  defstruct [:phone_number, :allow_flash_call, :is_current_phone_number]
+  defstruct "@type": "setAuthenticationPhoneNumber", phone_number: nil, allow_flash_call: nil, is_current_phone_number: nil
 end
 defmodule SearchContacts do
   @moduledoc  """
@@ -3311,7 +3311,7 @@ defmodule SearchContacts do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1search_contacts.html).
   """
 
-  defstruct [:query, :limit]
+  defstruct "@type": "searchContacts", query: nil, limit: nil
 end
 defmodule EditInlineMessageLiveLocation do
   @moduledoc  """
@@ -3327,7 +3327,7 @@ defmodule EditInlineMessageLiveLocation do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1edit_inline_message_live_location.html).
   """
 
-  defstruct [:inline_message_id, :reply_markup, :location]
+  defstruct "@type": "editInlineMessageLiveLocation", inline_message_id: nil, reply_markup: nil, location: nil
 end
 defmodule GetImportedContactCount do
   @moduledoc  """
@@ -3338,7 +3338,7 @@ defmodule GetImportedContactCount do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_imported_contact_count.html).
   """
 
-  defstruct []
+  defstruct "@type": "getImportedContactCount"
 end
 defmodule CheckDatabaseEncryptionKey do
   @moduledoc  """
@@ -3352,7 +3352,7 @@ defmodule CheckDatabaseEncryptionKey do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1check_database_encryption_key.html).
   """
 
-  defstruct [:encryption_key]
+  defstruct "@type": "checkDatabaseEncryptionKey", encryption_key: nil
 end
 defmodule GenerateChatInviteLink do
   @moduledoc  """
@@ -3366,7 +3366,7 @@ defmodule GenerateChatInviteLink do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1generate_chat_invite_link.html).
   """
 
-  defstruct [:chat_id]
+  defstruct "@type": "generateChatInviteLink", chat_id: nil
 end
 defmodule GetStickerEmojis do
   @moduledoc  """
@@ -3380,7 +3380,7 @@ defmodule GetStickerEmojis do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_sticker_emojis.html).
   """
 
-  defstruct [:sticker]
+  defstruct "@type": "getStickerEmojis", sticker: nil
 end
 defmodule SendChatSetTtlMessage do
   @moduledoc  """
@@ -3395,7 +3395,7 @@ defmodule SendChatSetTtlMessage do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1send_chat_set_ttl_message.html).
   """
 
-  defstruct [:chat_id, :ttl]
+  defstruct "@type": "sendChatSetTtlMessage", chat_id: nil, ttl: nil
 end
 defmodule SearchChatMessages do
   @moduledoc  """
@@ -3415,7 +3415,7 @@ defmodule SearchChatMessages do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1search_chat_messages.html).
   """
 
-  defstruct [:chat_id, :query, :sender_user_id, :from_message_id, :offset, :limit, :filter]
+  defstruct "@type": "searchChatMessages", chat_id: nil, query: nil, sender_user_id: nil, from_message_id: nil, offset: nil, limit: nil, filter: nil
 end
 defmodule TestGetDifference do
   @moduledoc  """
@@ -3426,7 +3426,7 @@ defmodule TestGetDifference do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1test_get_difference.html).
   """
 
-  defstruct []
+  defstruct "@type": "testGetDifference"
 end
 defmodule DeleteChatReplyMarkup do
   @moduledoc  """
@@ -3441,7 +3441,7 @@ defmodule DeleteChatReplyMarkup do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1delete_chat_reply_markup.html).
   """
 
-  defstruct [:chat_id, :message_id]
+  defstruct "@type": "deleteChatReplyMarkup", chat_id: nil, message_id: nil
 end
 defmodule RemoveFavoriteSticker do
   @moduledoc  """
@@ -3455,7 +3455,7 @@ defmodule RemoveFavoriteSticker do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1remove_favorite_sticker.html).
   """
 
-  defstruct [:sticker]
+  defstruct "@type": "removeFavoriteSticker", sticker: nil
 end
 defmodule SetTdlibParameters do
   @moduledoc  """
@@ -3469,7 +3469,7 @@ defmodule SetTdlibParameters do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1set_tdlib_parameters.html).
   """
 
-  defstruct [:parameters]
+  defstruct "@type": "setTdlibParameters", parameters: nil
 end
 defmodule GetUserFullInfo do
   @moduledoc  """
@@ -3483,7 +3483,7 @@ defmodule GetUserFullInfo do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_user_full_info.html).
   """
 
-  defstruct [:user_id]
+  defstruct "@type": "getUserFullInfo", user_id: nil
 end
 defmodule GetCreatedPublicChats do
   @moduledoc  """
@@ -3494,7 +3494,7 @@ defmodule GetCreatedPublicChats do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_created_public_chats.html).
   """
 
-  defstruct []
+  defstruct "@type": "getCreatedPublicChats"
 end
 defmodule GetSavedOrderInfo do
   @moduledoc  """
@@ -3505,7 +3505,7 @@ defmodule GetSavedOrderInfo do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_saved_order_info.html).
   """
 
-  defstruct []
+  defstruct "@type": "getSavedOrderInfo"
 end
 defmodule GetInlineQueryResults do
   @moduledoc  """
@@ -3523,7 +3523,7 @@ defmodule GetInlineQueryResults do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_inline_query_results.html).
   """
 
-  defstruct [:bot_user_id, :chat_id, :user_location, :query, :offset]
+  defstruct "@type": "getInlineQueryResults", bot_user_id: nil, chat_id: nil, user_location: nil, query: nil, offset: nil
 end
 defmodule GetInviteText do
   @moduledoc  """
@@ -3534,7 +3534,7 @@ defmodule GetInviteText do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_invite_text.html).
   """
 
-  defstruct []
+  defstruct "@type": "getInviteText"
 end
 defmodule GetRemoteFile do
   @moduledoc  """
@@ -3549,6 +3549,6 @@ defmodule GetRemoteFile do
   More details on [telegram's documentation](https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1get_remote_file.html).
   """
 
-  defstruct [:remote_file_id, :file_type]
+  defstruct "@type": "getRemoteFile", remote_file_id: nil, file_type: nil
 end
 end

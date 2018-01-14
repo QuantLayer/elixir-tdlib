@@ -24,8 +24,8 @@ defmodule Mix.Tasks.GenerateTypes do
 
   defp build_fields_string(list) do
     List.foldl(
-      list, "", fn(field, acc) -> acc <> ":#{Map.get(field, "name")}, " end
-    ) |> String.trim(", ")
+      list, "", fn(field, acc) -> acc <> ", #{Map.get(field, "name")}: nil" end
+    )
   end
   defp build_fields_doc(list) do
     table_header = """
@@ -81,7 +81,7 @@ defmodule Mix.Tasks.GenerateTypes do
       More details on [telegram's documentation](#{url}).
       \"""
 
-      defstruct [#{struct_fields}]
+      defstruct "@type": "#{key}"#{struct_fields}
     end
     """
   end

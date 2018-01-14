@@ -1,17 +1,18 @@
 defmodule TDLib.Handler do
   require Logger
+  alias TDLib.{Object, Method}
   use GenServer
 
-  @tdlib_config %{
-    "@type" => "setTdlibParameters",
-    "use_message_database" => true,
-    "api_id"               => "123",
-    "api_hash"             => "hashash",
-    "system_language_code" => "en",
-    "device_model"         => "Unknown",
-    "system_version"       => "Unknown",
-    "application_version"  => "Unknown",
-    "enable_storage_optimizer" => true
+  @tdlib_config %Object.TdlibParameters{
+    :use_test_dc           => false,
+    :use_message_database  => true,
+    :api_id                => "123",
+    :api_hash              => "hashash",
+    :system_language_code  => "en",
+    :device_model          => "Unknown",
+    :system_version        => "Unknown",
+    :application_version   => "Unknown",
+    :enable_storage_optimizer  => true
   }
 
   def start_link() do
@@ -64,9 +65,8 @@ defmodule TDLib.Handler do
       "updateAuthorizationState" -> json |> Map.get("authorization_state")
                                          |> handle_object()
       "authorizationStateWaitTdlibParameters" ->
-        msg = Poison.encode!(%{
-          "@type" => "setTdlibParameters",
-          "parameters" => @tdlib_config
+        msg = Poison.encode!(%Method.SetTdlibParameters{
+          :parameters  => @tdlib_config
         }) <> "\n"
         GenServer.call :backend, {:transmit, msg}
       _ ->
