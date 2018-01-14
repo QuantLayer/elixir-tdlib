@@ -1,32 +1,34 @@
 defmodule TDLib.Backend do
+  alias TDLib.Backend
+  alias TDLib.SessionRegistry, as: Registry
   require Logger
   use GenServer
-  alias TDLib.Backend
 
   @binary :code.priv_dir(:telegram_tdlib) |> Path.join("tdlib-json-cli")
   @max_line_length 10_000
   @port_opts [:binary, {:line, @max_line_length}]
 
-  defstruct [:client, :port]
+  # Internal state
+  defstruct [:name, :port]
 
-  def start_link() do
-    GenServer.start_link(__MODULE__, :ok, name: :backend)
+  def start_link(name) do
+    GenServer.start_link(__MODULE__, name, [])
   end
 
-  def init(:ok) do
+  def init(name) do
+    # Register itself
+    true = Registry.update(name, backend_pid: self())
+
+    # Generate the internal state, open the port
     state = %Backend{
-      port: Port.open({:spawn_executable, @binary}, @port_opts),
-      client: :handler
+      name: name,
+      port: Port.open({:spawn_executable, @binary}, @port_opts)
     }
 
     {:ok, state}
   end
 
-  def handle_call({:register, pid}, _from, state) when is_pid(pid) do
-    new_state = struct state, client: pid
-
-    {:reply, :ok, new_state}
-  end
+  ###
 
   def handle_call({:transmit, msg}, _from, state) do
     data = msg <> "\n"
@@ -37,15 +39,19 @@ defmodule TDLib.Backend do
 
   def handle_info({_from, {:data, data}}, state) do
     {:eol, msg} = data
+    handler_pid = Registry.get(state.name, :handler_pid)
 
-    if (state.client != nil) do
+    if (handler_pid != nil) do
       # Forward msg to the client
-      Kernel.send state.client, {:tdlib, msg}
+      Kernel.send handler_pid, {:tdlib, msg}
     else
-      IO.puts "Backend: no client registered !"
-      IO.inspect msg
+      Logger.warn "#{state.name}: incoming message but no handler registered."
     end
 
     {:noreply, state}
+  end
+
+  def terminate(_reason, state) do
+    Port.close(state.port)
   end
 end

@@ -1,6 +1,7 @@
 defmodule TDLib.Handler do
-  require Logger
   alias TDLib.{Object, Method}
+  alias TDLib.SessionRegistry, as: Registry
+  require Logger
   use GenServer
 
   @tdlib_config %Object.TdlibParameters{
@@ -17,63 +18,62 @@ defmodule TDLib.Handler do
 
   # Must be a multiple of 4
   @database_encryption_key "1234"
+  @backend_verbosity_level 2
 
-  def start_link() do
-    GenServer.start_link(__MODULE__, :ok, name: :handler)
+  def start_link(session_name) do
+    GenServer.start_link(__MODULE__, session_name, [])
   end
 
-  def init(:ok) do
-    state = nil
-    GenServer.call :backend, {:transmit, "verbose 2"}
+  def init(session) do
+    # Register itself
+    true = Registry.update(session, handler_pid: self())
 
-    {:ok, state}
+    {:ok, session}
   end
 
-  def handle_info({:tdlib, msg}, state) do
+  def handle_info({:tdlib, msg}, session) do
     json = Poison.decode!(msg)
     keys = Map.keys(json)
 
-    Logger.debug "New input"
-
     cond do
-      "@cli" in keys -> json |> handle_cli()
-      "@type" in keys -> json |> handle_object()
-      true -> IO.inspect json
+      "@cli" in keys -> json |> handle_cli(session)
+      "@type" in keys -> json |> handle_object(session)
+      true -> Logger.warn "#{session}: unknown structure received."
     end
 
-    {:noreply, state}
+    {:noreply, session}
   end
 
   ###
 
-  def handle_cli(json) do
+  def handle_cli(json, session) do
     cli = Map.get(json, "@cli")
     event = Map.get(cli, "event")
 
     Logger.debug "CLI event received: #{event}"
 
     case event do
-      "client_created" -> :ignore
+      "client_created" -> set_backend_verbosity(@backend_verbosity_level, session)
       _ ->
         IO.puts "Unknown CLI event :"
         IO.inspect event
     end
   end
 
-  def handle_object(json) do
+  def handle_object(json, session) do
     type = Map.get(json, "@type")
 
     Logger.debug "Object received: #{type}"
 
     case type do
       "updateAuthorizationState" -> json |> Map.get("authorization_state")
-                                         |> handle_object()
+                                         |> handle_object(session)
       "authorizationStateWaitTdlibParameters" ->
-        transmit %Method.SetTdlibParameters{
+        transmit session, %Method.SetTdlibParameters{
           :parameters  => @tdlib_config
         }
       "authorizationStateWaitEncryptionKey" ->
-        transmit %Method.CheckDatabaseEncryptionKey{
+        transmit session, %Method.CheckDatabaseEncryptionKey{
           encryption_key: @database_encryption_key
         }
       _ ->
@@ -84,9 +84,20 @@ defmodule TDLib.Handler do
 
   ###
 
-  def transmit(map) do
-    Logger.debug "Sending #{Map.get(map, :"@type")}"
+  defp transmit(session, map) do
     msg = Poison.encode!(map)
-    GenServer.call :backend, {:transmit, msg}
+    backend_pid = Registry.get(session, :backend_pid)
+
+    Logger.debug "#{session}: sending #{Map.get(map, :"@type")}"
+    GenServer.call backend_pid, {:transmit, msg}
+  end
+
+  defp set_backend_verbosity(level, session) do
+    # Set tdlib's verbosity level
+    backend_pid = Registry.get(session, :backend_pid)
+    command = "verbose #{level}"
+    GenServer.call backend_pid, {:transmit, command}
+
+    Logger.debug "#{session}: backend verbosity set to #{level}."
   end
 end
