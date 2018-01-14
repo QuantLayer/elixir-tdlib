@@ -15,12 +15,16 @@ defmodule TDLib.Handler do
     :enable_storage_optimizer  => true
   }
 
+  # Must be a multiple of 4
+  @database_encryption_key "1234"
+
   def start_link() do
     GenServer.start_link(__MODULE__, :ok, name: :handler)
   end
 
   def init(:ok) do
     state = nil
+    GenServer.call :backend, {:transmit, "verbose 2"}
 
     {:ok, state}
   end
@@ -65,13 +69,24 @@ defmodule TDLib.Handler do
       "updateAuthorizationState" -> json |> Map.get("authorization_state")
                                          |> handle_object()
       "authorizationStateWaitTdlibParameters" ->
-        msg = Poison.encode!(%Method.SetTdlibParameters{
+        transmit %Method.SetTdlibParameters{
           :parameters  => @tdlib_config
-        }) <> "\n"
-        GenServer.call :backend, {:transmit, msg}
+        }
+      "authorizationStateWaitEncryptionKey" ->
+        transmit %Method.CheckDatabaseEncryptionKey{
+          encryption_key: @database_encryption_key
+        }
       _ ->
-        IO.puts "Unknown object type :"
+        Logger.warn "Unknown object type : #{type}"
         IO.inspect json
     end
+  end
+
+  ###
+
+  def transmit(map) do
+    Logger.debug "Sending #{Map.get(map, :"@type")}"
+    msg = Poison.encode!(map)
+    GenServer.call :backend, {:transmit, msg}
   end
 end

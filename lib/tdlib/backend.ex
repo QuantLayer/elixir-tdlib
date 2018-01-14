@@ -1,8 +1,11 @@
 defmodule TDLib.Backend do
+  require Logger
   use GenServer
   alias TDLib.Backend
 
   @binary :code.priv_dir(:telegram_tdlib) |> Path.join("tdlib-json-cli")
+  @max_line_length 10_000
+  @port_opts [:binary, {:line, @max_line_length}]
 
   defstruct [:client, :port]
 
@@ -12,7 +15,7 @@ defmodule TDLib.Backend do
 
   def init(:ok) do
     state = %Backend{
-      port: Port.open({:spawn_executable, @binary}, [:binary]),
+      port: Port.open({:spawn_executable, @binary}, @port_opts),
       client: :handler
     }
 
@@ -26,13 +29,14 @@ defmodule TDLib.Backend do
   end
 
   def handle_call({:transmit, msg}, _from, state) do
-    result = Kernel.send state.port, {self(), {:command, msg}}
+    data = msg <> "\n"
+    result = Kernel.send state.port, {self(), {:command, data}}
 
     {:reply, result, state}
   end
 
   def handle_info({_from, {:data, data}}, state) do
-    msg = data
+    {:eol, msg} = data
 
     if (state.client != nil) do
       # Forward msg to the client
