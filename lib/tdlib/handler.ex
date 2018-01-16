@@ -62,23 +62,24 @@ defmodule TDLib.Handler do
 
   def handle_object(json, session) do
     type = Map.get(json, "@type")
+    struct = match(:object, json, "Elixir.TDLib.Object.")
 
     Logger.debug "Object received: #{type}"
 
-    case type do
-      "updateAuthorizationState" -> json |> Map.get("authorization_state")
-                                         |> handle_object(session)
-      "authorizationStateWaitTdlibParameters" ->
+    case struct do
+      %Object.UpdateAuthorizationState{} ->
+        struct.authorization_state |> handle_object(session)
+      %Object.AuthorizationStateWaitTdlibParameters{} ->
         transmit session, %Method.SetTdlibParameters{
           :parameters  => @tdlib_config
         }
-      "authorizationStateWaitEncryptionKey" ->
+      %Object.AuthorizationStateWaitEncryptionKey{} ->
         transmit session, %Method.CheckDatabaseEncryptionKey{
           encryption_key: @database_encryption_key
         }
       _ ->
         Logger.warn "Unknown object type : #{type}"
-        IO.inspect json
+        IO.inspect struct
     end
   end
 
@@ -99,5 +100,20 @@ defmodule TDLib.Handler do
     GenServer.call backend_pid, {:transmit, command}
 
     Logger.debug "#{session}: backend verbosity set to #{level}."
+  end
+
+  defp match(:object, json, prefix) do
+    {char, rest} = json |> Map.get("@type")
+                        |> String.Casing.titlecase_once()
+    string = prefix <> char <> rest
+    module = String.to_existing_atom(string)
+
+    struct = struct(module)
+    Enum.reduce Map.to_list(struct), struct, fn {k, _}, acc ->
+      case Map.fetch(json, Atom.to_string(k)) do
+        {:ok, v} -> %{acc | k => v}
+        :error -> acc
+      end
+    end
   end
 end
