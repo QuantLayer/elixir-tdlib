@@ -6,11 +6,10 @@ defmodule TDLib.Backend do
 
   @moduledoc false
   @binary TDLib.get_backend_binary()
-  @max_line_length 10_000
-  @port_opts [:binary, {:line, @max_line_length}]
+  @port_opts [:binary, :line]
 
   # Internal state
-  defstruct [:name, :port]
+  defstruct [:name, :port, :buffer]
 
   def start_link(name) do
     GenServer.start_link(__MODULE__, name, [])
@@ -23,6 +22,7 @@ defmodule TDLib.Backend do
     # Generate the process' internal state, open the port
     state = %Backend{
       name: name,
+      buffer: "",
       port: Port.open({:spawn_executable, @binary}, @port_opts)
     }
 
@@ -39,17 +39,34 @@ defmodule TDLib.Backend do
   end
 
   def handle_info({_from, {:data, data}}, state) do
-    {:eol, msg} = data
-    handler_pid = Registry.get(state.name, :handler_pid)
+    case data do
+      {:eol, tail} ->
+        # complete buffered line part if required
+        {new_state, msg} = if (state.buffer != "") do
+          {struct(state, buffer: ""), state.buffer <> tail}
+        else
+          {state, tail}
+        end
 
-    if (handler_pid != nil) do
-      # Forward msg to the client
-      Kernel.send handler_pid, {:tdlib, msg}
-    else
-      Logger.warn "#{state.name}: incoming message but no handler registered."
+        # resolve handler's pid
+        handler_pid = Registry.get(state.name, :handler_pid)
+
+        if (handler_pid != nil) do
+          # Forward msg to the client
+          Kernel.send handler_pid, {:tdlib, msg}
+        else
+          Logger.warn "#{state.name}: incoming message but no handler registered."
+        end
+
+        {:noreply, new_state}
+      {:noeol, part} ->
+        # incomplete line, fill the buffer
+        new_state = struct(state, buffer: state.buffer <> part)
+        {:noreply, new_state}
+      _ ->
+        raise "unknown input structure"
+        {:noreply, state}
     end
-
-    {:noreply, state}
   end
 
   def terminate(_reason, state) do
