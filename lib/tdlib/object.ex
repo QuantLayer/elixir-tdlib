@@ -1,6 +1,7 @@
 defmodule TDLib.Object do
   @moduledoc """
-    @TODO
+  This module was generated using Telegram's TDLib documentation. It contains
+  530 submodules (= structs).
   """
 defmodule InlineQueryResult do
   @moduledoc  """

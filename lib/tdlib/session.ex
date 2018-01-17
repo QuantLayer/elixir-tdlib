@@ -5,14 +5,15 @@ defmodule TDLib.Session do
 
   @moduledoc false
 
-  defstruct [:name, :supervisor_pid, :backend_pid, :handler_pid]
+  defstruct [:name, :config, :supervisor_pid, :backend_pid, :handler_pid,
+             :client_pid]
 
   def start_link(name) do
     Supervisor.start_link(__MODULE__, name, [])
   end
 
   def init(name) do
-    Registry.set name, %Session{name: name, supervisor_pid: self()}
+    Registry.update(name, supervisor_pid: self())
 
     children = [
       worker(TDLib.Backend, [name], restart: :permanent),
@@ -23,8 +24,17 @@ defmodule TDLib.Session do
     Supervisor.init(children, opts)
   end
 
-  def create(name) do
-    start_link(name)
+  def create(name, client, config) do
+    # Initialize the new session in the registry
+    Registry.set(name, %Session{config: config, client_pid: client})
+
+    # Try to start the session
+    {status, output} = start_link(name)
+
+    # Remove from registry if the creation failed
+    unless status == :ok, do: Registry.drop(name)
+
+    {status, output}
   end
 
   def destroy(name) do

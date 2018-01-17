@@ -4,26 +4,17 @@ defmodule TDLib.Handler do
   require Logger
   use GenServer
 
-  @tdlib_config %Object.TdlibParameters{
-    :use_test_dc           => false,
-    :use_message_database  => true,
-    :api_id                => "123",
-    :api_hash              => "hashash",
-    :system_language_code  => "en",
-    :device_model          => "Unknown",
-    :system_version        => "Unknown",
-    :application_version   => "Unknown",
-    :enable_storage_optimizer  => true
-  }
-
   # Must be a multiple of 4
+  @moduledoc false
   @database_encryption_key "1234"
   @backend_verbosity_level 2
+  @disable_handling Application.get_env(:telegram_tdlib, :disable_handling)
 
   def start_link(session_name) do
     GenServer.start_link(__MODULE__, session_name, [])
   end
 
+  # session is the session's name (= identifier)
   def init(session) do
     # Register itself
     true = Registry.update(session, handler_pid: self())
@@ -66,20 +57,31 @@ defmodule TDLib.Handler do
 
     Logger.debug "Object received: #{type}"
 
-    case struct do
-      %Object.UpdateAuthorizationState{} ->
-        struct.authorization_state |> handle_object(session)
-      %Object.AuthorizationStateWaitTdlibParameters{} ->
-        transmit session, %Method.SetTdlibParameters{
-          :parameters  => @tdlib_config
-        }
-      %Object.AuthorizationStateWaitEncryptionKey{} ->
-        transmit session, %Method.CheckDatabaseEncryptionKey{
-          encryption_key: @database_encryption_key
-        }
-      _ ->
-        Logger.warn "Unknown object type : #{type}"
-        IO.inspect struct
+    unless @disable_handling do
+      case struct do
+        %Object.Error{code: code, message: message} ->
+          Logger.error "#{session}: error #{code} - #{message}"
+        %Object.UpdateAuthorizationState{} ->
+          struct.authorization_state |> handle_object(session)
+        %Object.AuthorizationStateWaitTdlibParameters{} ->
+          config = Registry.get(session) |> Map.get(:config)
+          transmit session, %Method.SetTdlibParameters{
+            :parameters  => config
+          }
+        %Object.AuthorizationStateWaitEncryptionKey{} ->
+          transmit session, %Method.CheckDatabaseEncryptionKey{
+            encryption_key: @database_encryption_key
+          }
+        _ ->
+          Logger.warn "Unknown object type : #{type}"
+          IO.inspect struct
+      end
+    end
+
+    # Forward to client
+    client_pid = Registry.get(session) |> Map.get(:client_pid)
+    if is_pid(client_pid) and Process.alive?(client_pid) do
+      Kernel.send(client_pid, {:recv, struct})
     end
   end
 

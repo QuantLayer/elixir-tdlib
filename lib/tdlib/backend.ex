@@ -4,7 +4,8 @@ defmodule TDLib.Backend do
   require Logger
   use GenServer
 
-  @binary :code.priv_dir(:telegram_tdlib) |> Path.join("tdlib-json-cli")
+  @moduledoc false
+  @binary TDLib.get_backend_binary()
   @max_line_length 10_000
   @port_opts [:binary, {:line, @max_line_length}]
 
@@ -19,7 +20,7 @@ defmodule TDLib.Backend do
     # Register itself
     true = Registry.update(name, backend_pid: self())
 
-    # Generate the internal state, open the port
+    # Generate the process' internal state, open the port
     state = %Backend{
       name: name,
       port: Port.open({:spawn_executable, @binary}, @port_opts)

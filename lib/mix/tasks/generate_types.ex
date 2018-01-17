@@ -94,7 +94,8 @@ defmodule Mix.Tasks.GenerateTypes do
     IO.write fd, """
     defmodule TDLib.Object do
       @moduledoc \"""
-        @TODO
+      This module was generated using Telegram's TDLib documentation. It contains
+      #{Enum.count(objects)} submodules (= structs).
       \"""
     """
 
@@ -116,7 +117,8 @@ defmodule Mix.Tasks.GenerateTypes do
     IO.write fd, """
     defmodule TDLib.Method do
       @moduledoc \"""
-        @TODO
+      This module was generated using Telegram's TDLib documentation. It contains
+      #{Enum.count(methods)} submodules (= structs).
       \"""
     """
 

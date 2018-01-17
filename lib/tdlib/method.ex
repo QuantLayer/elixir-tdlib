@@ -1,6 +1,7 @@
 defmodule TDLib.Method do
   @moduledoc """
-    @TODO
+  This module was generated using Telegram's TDLib documentation. It contains
+  246 submodules (= structs).
   """
 defmodule TestUseError do
   @moduledoc  """

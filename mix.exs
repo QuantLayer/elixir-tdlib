@@ -4,7 +4,7 @@ defmodule TDLib.Mixfile do
   def project do
     [
       app: :telegram_tdlib,
-      version: "0.1.0",
+      version: "0.0.1",
       elixir: "~> 1.5",
       start_permanent: Mix.env == :prod,
       compilers: [:elixir_make] ++ Mix.compilers,
