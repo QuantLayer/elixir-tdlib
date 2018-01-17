@@ -53,7 +53,7 @@ defmodule TDLib.Handler do
 
   def handle_object(json, session) do
     type = Map.get(json, "@type")
-    struct = match(:object, json, "Elixir.TDLib.Object.")
+    struct = recursive_match(:object, json, "Elixir.TDLib.Object.")
 
     Logger.debug "Object received: #{type}"
 
@@ -62,19 +62,19 @@ defmodule TDLib.Handler do
         %Object.Error{code: code, message: message} ->
           Logger.error "#{session}: error #{code} - #{message}"
         %Object.UpdateAuthorizationState{} ->
-          struct.authorization_state |> handle_object(session)
-        %Object.AuthorizationStateWaitTdlibParameters{} ->
-          config = Registry.get(session) |> Map.get(:config)
-          transmit session, %Method.SetTdlibParameters{
-            :parameters  => config
-          }
-        %Object.AuthorizationStateWaitEncryptionKey{} ->
-          transmit session, %Method.CheckDatabaseEncryptionKey{
-            encryption_key: @database_encryption_key
-          }
-        _ ->
-          Logger.warn "Unknown object type : #{type}"
-          IO.inspect struct
+          case struct.authorization_state do
+            %Object.AuthorizationStateWaitTdlibParameters{} ->
+              config = Registry.get(session) |> Map.get(:config)
+              transmit session, %Method.SetTdlibParameters{
+                :parameters  => config
+              }
+            %Object.AuthorizationStateWaitEncryptionKey{} ->
+              transmit session, %Method.CheckDatabaseEncryptionKey{
+                encryption_key: @database_encryption_key
+              }
+            _ -> :ignore
+          end
+        _ -> :ignore
       end
     end
 
@@ -102,6 +102,20 @@ defmodule TDLib.Handler do
     GenServer.call backend_pid, {:transmit, command}
 
     Logger.debug "#{session}: backend verbosity set to #{level}."
+  end
+
+  defp recursive_match(:object, json, prefix) do
+    # Match depth 1
+    struct = match(:object, json, prefix)
+
+    # Look for maps at depth n+1
+    nested_maps = :maps.filter(fn(_, v) -> is_map(v) end, struct)
+
+    # Math depth n+1
+    nested_structs = :maps.map(fn(k, v) -> recursive_match(:object, v, prefix) end, nested_maps)
+
+    # Merge
+    Map.merge(struct, nested_structs)
   end
 
   defp match(:object, json, prefix) do
