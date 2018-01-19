@@ -21,7 +21,7 @@ You first have to add this project to your `mix.exs` :
 
 ```
 def deps do
-  [{:elixir_tdlib, "~> 0.0.1", git: "https://gitlab.com/Fnux/elixir-tdlib.git"}]
+  [{:tdlib, "~> 0.0.1", git: "https://gitlab.com/Fnux/elixir-tdlib.git"}]
 end
 ```
 

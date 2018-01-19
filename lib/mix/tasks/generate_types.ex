@@ -138,7 +138,7 @@ defmodule Mix.Tasks.GenerateTypes do
   end
 
   def run(_) do
-    json_path =  case :code.priv_dir(:elixir_tdlib) do
+    json_path =  case :code.priv_dir(:tdlib) do
       {:error, _} -> @json_source
       path -> path |> Path.join(@json_source)
     end
