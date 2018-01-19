@@ -3,7 +3,7 @@ defmodule TDLib.Mixfile do
 
   def project do
     [
-      app: :telegram_tdlib,
+      app: :elixir_tdlib,
       version: "0.0.1",
       elixir: "~> 1.5",
       start_permanent: Mix.env == :prod,

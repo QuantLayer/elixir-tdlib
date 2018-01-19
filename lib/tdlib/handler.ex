@@ -112,7 +112,7 @@ defmodule TDLib.Handler do
     nested_maps = :maps.filter(fn(_, v) -> is_map(v) end, struct)
 
     # Math depth n+1
-    nested_structs = :maps.map(fn(k, v) -> recursive_match(:object, v, prefix) end, nested_maps)
+    nested_structs = :maps.map(fn(_k, v) -> recursive_match(:object, v, prefix) end, nested_maps)
 
     # Merge
     Map.merge(struct, nested_structs)

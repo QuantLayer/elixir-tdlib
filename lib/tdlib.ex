@@ -91,7 +91,7 @@ defmodule TDLib do
   def get_backend_binary() do
     config = Application.get_env(:telegram_tdlib, :backend_binary)
     case config do
-      nil -> :code.priv_dir(:telegram_tdlib) |> Path.join("tdlib-json-cli")
+      nil -> :code.priv_dir(:elixir_tdlib) |> Path.join("tdlib-json-cli")
       _ -> config
     end
   end
