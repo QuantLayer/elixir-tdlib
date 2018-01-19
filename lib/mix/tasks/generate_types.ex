@@ -1,9 +1,9 @@
 defmodule Mix.Tasks.GenerateTypes do
   use Mix.Task
 
-  @json_source :code.priv_dir(:telegram_tdlib) |> Path.join("types.json")
   @object_module "lib/tdlib/object.ex"
   @method_module "lib/tdlib/method.ex"
+  @json_source "types.json"
 
   defp extract(text) do
     json = Poison.decode!(text)
@@ -138,8 +138,13 @@ defmodule Mix.Tasks.GenerateTypes do
   end
 
   def run(_) do
-    IO.puts "Importing #{@json_source}..."
-    text = File.read!(@json_source)
+    json_path =  case :code.priv_dir(:telegram_tdlib) do
+      {:error, _} -> @json_source
+      path -> path |> Path.join(@json_source)
+    end
+
+    IO.puts "Importing #{json_path}..."
+    text = File.read!(json_path)
 
     IO.puts "Parsing JSON..."
     {json, objects, methods} = extract(text)
