@@ -11,7 +11,7 @@ defmodule TDLib do
     :use_message_database     => true,
     :use_secret_chats         => false,
     :api_id                   => "0",
-    :api_hash                 => "secret",
+    :api_hash                 => "0",
     :system_language_code     => "en",
     :device_model             => "Unknown",
     :system_version           => "Unknown",
@@ -32,6 +32,9 @@ defmodule TDLib do
   for details. You can obtain an `:api_id` and an `:api_hash` on
   [my.telegram.org](https://my.telegram.org/) : they are required by TDLib,
   **don't forget to set them !**
+
+  Be careful not to use the same `:database_directory` for two different
+  sessions !
   """
   def default_config(), do: @default_config
 
@@ -40,6 +43,7 @@ defmodule TDLib do
 
   * `session_name` is the identifier of the session
   * `client_pid` is the PID of the process receiving the incoming messages
+    (`{:recv, struct}`)
   * `config` is the configuration of TDLib, see `default_config/0`
 
   Return either `{:ok, pid}` or `{:error, reason}`.
@@ -78,7 +82,8 @@ defmodule TDLib do
 
   @doc """
    Set the process receiving the incoming update for session
-   `session_name` to `client_pid`.
+   `session_name` to `client_pid`. The incoming messages can be handled with
+   `def handle_info({:recv, msg}, state), do: ...` using GenServer.
 
    The client is initially set when the session is create, using `open/3`.
   """

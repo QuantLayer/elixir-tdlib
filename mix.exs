@@ -10,11 +10,31 @@ defmodule TDLib.Mixfile do
       compilers: [:elixir_make] ++ Mix.compilers,
       deps: deps(),
 
+      # Hex
+      description: description(),
+      package: package(),
+
       # Docs
       name: "TDLib",
       source_url: "https://gitlab.com/Fnux/elixir-tdlib",
       homepage_url: "https://gitlab.com/Fnux/elixir-tdlib",
       docs: [main: "readme", extras: ["README.md"]]
+    ]
+  end
+
+  defp description() do
+    "Bindings over Telegram's TDLib, allowing to act as a full-fledged Telegram client."
+  end
+
+  defp package() do
+    [
+      files: ["lib/tdlib*", "priv", "mix.exs", "README*", "LICENSE*"],
+      maintainers: ["Timothée Floure"],
+      licenses: ["AGPL-3.0", "BSL-1.0"],
+      links: %{
+        "Sources (gitlab.com)" => "https://gitlab.com/Fnux/elixir-tdlib",
+        "Telegram TDLib" => "https://core.telegram.org/tdlib"
+      }
     ]
   end
 
