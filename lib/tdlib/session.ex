@@ -6,7 +6,7 @@ defmodule TDLib.Session do
   @moduledoc false
 
   defstruct [:name, :config, :supervisor_pid, :backend_pid, :handler_pid,
-             :client_pid]
+             :client_pid, :encryption_key]
 
   def start_link(name) do
     Supervisor.start_link(__MODULE__, name, [])
@@ -24,9 +24,14 @@ defmodule TDLib.Session do
     Supervisor.init(children, opts)
   end
 
-  def create(name, client, config) do
+  def create(name, client, config, encryption_key) do
     # Initialize the new session in the registry
-    Registry.set(name, %Session{config: config, client_pid: client})
+    state = %Session{
+      config: config,
+      client_pid: client,
+      encryption_key: encryption_key
+    }
+    Registry.set(name, state)
 
     # Try to start the session
     {status, output} = start_link(name)

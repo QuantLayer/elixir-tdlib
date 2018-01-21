@@ -45,11 +45,13 @@ defmodule TDLib do
   * `client_pid` is the PID of the process receiving the incoming messages
     (`{:recv, struct}`)
   * `config` is the configuration of TDLib, see `default_config/0`
+  * `encryption_key` is the key used to encrypt the local database, it allows to
+  store the session's cache and authorization key even if the client is offline
 
   Return either `{:ok, pid}` or `{:error, reason}`.
   """
-  def open(session_name, client_pid, config) do
-    Session.create(session_name, client_pid, config)
+  def open(session_name, client_pid, config, encryption_key \\ "") do
+    Session.create(session_name, client_pid, config, encryption_key)
   end
 
   @doc """

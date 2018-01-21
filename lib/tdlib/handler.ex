@@ -6,7 +6,6 @@ defmodule TDLib.Handler do
 
   # Must be a multiple of 4
   @moduledoc false
-  @database_encryption_key "1234"
   @backend_verbosity_level 2
   @disable_handling Application.get_env(:telegram_tdlib, :disable_handling)
 
@@ -29,7 +28,7 @@ defmodule TDLib.Handler do
     cond do
       "@cli" in keys -> json |> handle_cli(session)
       "@type" in keys -> json |> handle_object(session)
-      true -> Logger.warn "#{session}: unknown structure received."
+      true -> Logger.warn "#{session}: unknown structure received"
     end
 
     {:noreply, session}
@@ -41,13 +40,11 @@ defmodule TDLib.Handler do
     cli = Map.get(json, "@cli")
     event = Map.get(cli, "event")
 
-    Logger.debug "CLI event received: #{event}"
+    Logger.debug "#{session}: received cli event #{event}"
 
     case event do
       "client_created" -> set_backend_verbosity(@backend_verbosity_level, session)
-      _ ->
-        IO.puts "Unknown CLI event :"
-        IO.inspect event
+      _ -> :ignore
     end
   end
 
@@ -55,7 +52,7 @@ defmodule TDLib.Handler do
     type = Map.get(json, "@type")
     struct = recursive_match(:object, json, "Elixir.TDLib.Object.")
 
-    Logger.debug "Object received: #{type}"
+    Logger.debug "#{session}: received object #{type}"
 
     unless @disable_handling do
       case struct do
@@ -70,7 +67,7 @@ defmodule TDLib.Handler do
               }
             %Object.AuthorizationStateWaitEncryptionKey{} ->
               transmit session, %Method.CheckDatabaseEncryptionKey{
-                encryption_key: @database_encryption_key
+                encryption_key: Registry.get(session, :encryption_key)
               }
             _ -> :ignore
           end
