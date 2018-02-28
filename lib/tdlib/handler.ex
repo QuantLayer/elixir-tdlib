@@ -117,7 +117,7 @@ defmodule TDLib.Handler do
 
   defp match(:object, json, prefix) do
     {char, rest} = json |> Map.get("@type")
-                        |> String.Casing.titlecase_once()
+                        |> String.Casing.titlecase_once(0)
     string = prefix <> char <> rest
     module = String.to_existing_atom(string)
 
