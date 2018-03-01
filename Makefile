@@ -1,7 +1,7 @@
-BUILD_ROOT=_build/tdlib
-BUILD_DIRECTORY=$(BUILD_ROOT)/rel
+BUILD_ROOT=/root/tdlib
+BUILD_DIRECTORY=$(BUILD_ROOT)/build
 BUILD_ARTIFACT=$(BUILD_DIRECTORY)/bin/tdlib_json_cli
-PRIV_DIR=priv
+PRIV_DIR=/root/priv
 BIN_TARGET=$(PRIV_DIR)/tdlib-json-cli
 
 TDLIB_SRC=priv/tdlib_v1.0.0.tar.gz
@@ -22,6 +22,7 @@ extract:
 	tar xvf $(TDLIB_SRC) --directory $(BUILD_ROOT)/td --strip-components 1
 
 build:
+	mkdir $(PRIV_DIR); \
 	mkdir $(BUILD_DIRECTORY); \
 	cd $(BUILD_DIRECTORY); \
 	cmake .. ; \

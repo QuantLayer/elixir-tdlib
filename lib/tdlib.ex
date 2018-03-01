@@ -96,10 +96,6 @@ defmodule TDLib do
 
   @doc false
   def get_backend_binary() do
-    config = Application.get_env(:tdlib, :backend_binary)
-    case config do
-      nil -> :code.priv_dir(:tdlib) |> Path.join("tdlib-json-cli")
-      _ -> config
-    end
+    "/root/priv/tdlib-json-cli"
   end
 end
