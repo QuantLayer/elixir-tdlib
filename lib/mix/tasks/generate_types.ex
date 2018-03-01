@@ -133,7 +133,7 @@ defmodule Mix.Tasks.GenerateTypes do
   end
 
   defp build_module_name(string) do
-    {char, rest} = String.Casing.titlecase_once(string, 0)
+    {char, rest} = String.Casing.titlecase_once(string)
     char <> rest
   end
 
