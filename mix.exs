@@ -5,7 +5,7 @@ defmodule TDLib.Mixfile do
     [
       app: :tdlib,
       version: "0.0.1",
-      elixir: "~> 1.5",
+      elixir: "~> 1.6",
       start_permanent: Mix.env == :prod,
       compilers: Mix.compilers,
       deps: deps(),
