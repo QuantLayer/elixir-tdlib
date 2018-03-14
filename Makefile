@@ -1,7 +1,7 @@
-BUILD_ROOT=/root/tdlib
+BUILD_ROOT=/home/faizaanshamsi/elixir-tdlib/tdlib_binary
 BUILD_DIRECTORY=$(BUILD_ROOT)/build
 BUILD_ARTIFACT=$(BUILD_DIRECTORY)/bin/tdlib_json_cli
-PRIV_DIR=/root/priv
+PRIV_DIR=/home/faizaanshamsi/elixir-tdlib/tdlib_json
 BIN_TARGET=$(PRIV_DIR)/tdlib-json-cli
 
 TDLIB_SRC=priv/tdlib_v1.0.0.tar.gz

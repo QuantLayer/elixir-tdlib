@@ -96,6 +96,6 @@ defmodule TDLib do
 
   @doc false
   def get_backend_binary() do
-    "/root/priv/tdlib-json-cli"
+    "/home/faizaanshamsi/elixir-tdlib/tdlib_binary/tdlib-json-cli"
   end
 end

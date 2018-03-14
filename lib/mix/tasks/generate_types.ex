@@ -3,7 +3,7 @@ defmodule Mix.Tasks.GenerateTypes do
 
   @object_module "lib/tdlib/object.ex"
   @method_module "lib/tdlib/method.ex"
-  @json_source "/root/priv/types.json"
+  @json_source "/home/faizaanshamsi/elixir-tdlib/tdlib_json/types.json"
 
   defp extract(text) do
     json = Poison.decode!(text)
@@ -138,10 +138,7 @@ defmodule Mix.Tasks.GenerateTypes do
   end
 
   def run(_) do
-    json_path =  case :code.priv_dir(:tdlib) do
-      {:error, _} -> @json_source
-      path -> path |> Path.join(@json_source)
-    end
+    json_path =  @json_source
 
     IO.puts "Importing #{json_path}..."
     text = File.read!(json_path)
