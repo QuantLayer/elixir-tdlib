@@ -4,8 +4,8 @@ BUILD_ARTIFACT=$(BUILD_DIRECTORY)/bin/tdlib_json_cli
 PRIV_DIR=/home/faizaanshamsi/elixir-tdlib/tdlib_json
 BIN_TARGET=$(PRIV_DIR)/tdlib-json-cli
 
-TDLIB_SRC=priv/tdlib_v1.0.0.tar.gz
-TDLIBJSONCLI_SRC=priv/tdlib-json-cli_v0.0.0-alpha1.tar.gz
+TDLIB_SRC=priv/td-1.2.0.tar.gz
+TDLIBJSONCLI_SRC=priv/tdlib-json-cli-1.1.1-1.tar.gz
 
 all:
 	if [ ! -f $(BIN_TARGET) ]; then \
