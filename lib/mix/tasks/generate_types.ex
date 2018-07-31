@@ -3,7 +3,7 @@ defmodule Mix.Tasks.GenerateTypes do
 
   @object_module "lib/tdlib/object.ex"
   @method_module "lib/tdlib/method.ex"
-  @json_source "/home/faizaanshamsi/elixir-tdlib/tdlib_json/types.json"
+  @json_source "/home/quantlayer/elixir-tdlib/tdlib_json/types.json"
 
   defp extract(text) do
     json = Poison.decode!(text)
